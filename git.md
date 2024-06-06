@@ -17,3 +17,9 @@ git branch developer *criar*
 git checkout developer *altera*
 git checkout -b feature1 *cria uma nova e altera*
 git branch -d feature1 *apaga*
+
+[developer]
+git checkout -b feature1
+git add .
+git commit -m "feature1"
+git push
