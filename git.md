@@ -18,8 +18,13 @@ git checkout developer *altera*
 git checkout -b feature1 *cria uma nova e altera*
 git branch -d feature1 *apaga*
 
-[developer]
+## Criando uma feature a partir de developer
+[developer] -> [feature1]
 git checkout -b feature1
 git add .
 git commit -m "feature1"
-git push
+git push -u origin feature1
+
+## Juntando a feature na developer
+[feature1] -> [developer]
+git checkout developer
