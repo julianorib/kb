@@ -1,4 +1,5 @@
 # cheat git
+[init]
 ```
 gitv clone
 git init
