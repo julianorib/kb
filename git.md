@@ -15,6 +15,8 @@ git add .
 git commit -m "init"
 git push
 ```
+
+## Trabalhando com branchs 
 ```
 git branch *listar*
 git branch developer *criar*
