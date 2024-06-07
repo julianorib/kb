@@ -21,6 +21,7 @@ git push
 - Add classic branch protection rule.
 - - Informe o nome "main".
 - - Require a pull request before merging.
+- - - Require approvals *ATENÇÃO*
 - - Require status checks to pass before merging.
 - - Do not allow bypassing the above settings.
 -- Save.
