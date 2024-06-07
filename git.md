@@ -42,3 +42,8 @@ git merge feature1
 git branch -d feature1
 git push
 ``` 
+
+## PR
+Não faça as mudanças e commit na "main".\
+Trabalhe com a "developer" e "featureX".\
+Faça o commit da "developer" e faça o PR na "main".
