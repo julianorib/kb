@@ -1,5 +1,6 @@
 # cheat git
-[init]
+
+## Iniciando
 ```
 gitv clone
 git init
