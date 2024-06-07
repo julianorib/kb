@@ -16,6 +16,16 @@ git commit -m "init"
 git push
 ```
 
+## Proteja a branch main contra push sem PR
+- No projeto, Configurações, Branchs.
+- Add classic branch protection rule.
+- - Informe o nome "main".
+- - Require a pull request before merging.
+- - Require status checks to pass before merging.
+- - Do not allow bypassing the above settings.
+-- Save.
+
+
 ## Trabalhando com branchs 
 ```
 git branch *listar*
