@@ -52,5 +52,6 @@ Faça o commit da "developer" e faça o PR na "main".
 [main] > [developer]
 git checkout main
 git pull
+git checkout developer
 git merge main
 
