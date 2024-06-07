@@ -16,6 +16,16 @@ git commit -m "init"
 git push
 ```
 
+## Proteja a branch main contra push sem PR
+- No projeto, Configurações, Branchs.
+- Add classic branch protection rule.
+- - Informe o nome "main".
+- - Require a pull request before merging.
+- - Require status checks to pass before merging.
+- - Do not allow bypassing the above settings.
+-- Save.
+
+
 ## Trabalhando com branchs 
 ```
 git branch *listar*
@@ -41,9 +51,19 @@ git checkout developer
 git merge feature1
 git branch -d feature1
 git push
-```
+``` 
 
 ## PR
 Não faça as mudanças e commit na "main".\
 Trabalhe com a "developer" e "featureX".\
 Faça o commit da "developer" e faça o PR na "main".
+
+
+## Atualizando a Developer após Merge com Main
+[main] > [developer]
+```
+git checkout main
+git pull
+git checkout developer
+git merge main
+```
