@@ -41,7 +41,7 @@ git checkout developer
 git merge feature1
 git branch -d feature1
 git push
-``` 
+```
 
 ## PR
 Não faça as mudanças e commit na "main".\
