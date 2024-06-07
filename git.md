@@ -48,10 +48,12 @@ Não faça as mudanças e commit na "main".\
 Trabalhe com a "developer" e "featureX".\
 Faça o commit da "developer" e faça o PR na "main".
 
+
 ## Atualizando a Developer após Merge com Main
 [main] > [developer]
+```
 git checkout main
 git pull
 git checkout developer
 git merge main
-
+```
