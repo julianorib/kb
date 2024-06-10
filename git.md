@@ -1,5 +1,6 @@
 # cheat git
-[init]
+
+## Iniciando
 ```
 gitv clone
 git init
@@ -24,7 +25,7 @@ git push
 - - - Require approvals *ATENÇÃO*
 - - Require status checks to pass before merging.
 - - Do not allow bypassing the above settings.
--- Save.
+- - Save.
 
 
 ## Trabalhando com branchs 
