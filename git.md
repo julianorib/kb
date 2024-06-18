@@ -69,3 +69,15 @@ git pull
 git checkout developer
 git merge main
 ```
+
+## Tags
+
+Releases.
+```
+git tag
+git tag -a v1.0 -m "mensagem" *criar*
+git tag -a v1.0 -m "mensagem" hashcomit *criar*
+git tag -d v1.0 *apagar*
+
+git push --tags
+```
