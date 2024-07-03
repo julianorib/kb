@@ -1,6 +1,6 @@
 # Git Cheat Sheet
 
-## Iniciar um projeto |
+## Iniciar um projeto 
 
 | Comando      |  Descrição |
 |--------------|------------|
@@ -9,9 +9,9 @@
 | git config --local user.email "seuemail@dominio.com" | Configurar um User E-mail no projeto | 
 | git config --local user.name "seu nome" | Configurar um User Name no projeto |
 | git branch -M main | Alterar a branch do projeto para Main |
-| git remote add origin | Adicionar o repositorio remoto ao projeto local |
+| git remote add origin https://xpto... | Adicionar o repositorio remoto ao projeto local |
 
-## Comitar atualizações no projeto e Subir para o Repositório
+## Commit - Push - Pull 
 
 | Comando      |  Descrição |
 |--------------|------------|
@@ -20,6 +20,8 @@
 | git commit -m "init" | Comitar alterações |
 | git push | Subir commit no repositório | 
 | git push -u origin main | Subir commit no repositório | 
+| git pull | Atualizar local com remoto |
+
 
 
 ## Trabalhando com branchs 
@@ -51,3 +53,13 @@ git merge feature1
 git branch -d feature1
 git push
 ``` 
+
+## Rastreabilidade
+
+| Comando      |  Descrição |
+|--------------|------------|
+| git log | Ver logs de commits |
+| git log file.txt | Ver logs de um arquivo |
+| git log --oneline | Ver logs resumido |
+| git log -n 2 | Ver logs dos ultimos 2 commits |
+| git log --graph --oneline | ver linha do tempo dos commits e branchs |
