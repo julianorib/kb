@@ -71,3 +71,6 @@ git push
 | Comando      |  Descrição |
 |--------------|------------|
 | git restore file.xpt | Restaurar um arquivo remoto sobre o atual |
+| git log | Ver os Commits e Hashs |
+| git reset --hard hash | Restaurar o projeto para um commit especifico da linha do tempo |
+ 
