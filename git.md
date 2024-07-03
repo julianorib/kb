@@ -64,3 +64,10 @@ git push
 | git log --oneline | Ver logs resumido |
 | git log -n 2 | Ver logs dos ultimos 2 commits |
 | git log --graph --oneline | ver linha do tempo dos commits e branchs |
+
+
+## Corrigindo problemas
+
+| Comando      |  Descrição |
+|--------------|------------|
+| git restore file.xpt | Restaurar um arquivo remoto sobre o atual |
