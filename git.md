@@ -18,29 +18,33 @@
 | git add . | Adicionar todos arquivos no commit |
 | git add file.xpto | Adicionar um arquivo no commit | 
 | git commit -m "init" | Comitar alterações |
+| git push | Subir commit no repositório | 
 | git push -u origin main | Subir commit no repositório | 
 
 
 ## Trabalhando com branchs 
-```
-git branch *listar*
-git branch developer *criar*
-git checkout developer *altera*
-git checkout -b feature1 *cria uma nova e altera*
-git branch -d feature1 *apaga*
-```
+| Comando      |  Descrição |
+|--------------|------------|
+| git branch  | Listar branchs |
+| git branch developer | Criar uma nova Branch "developer" |
+| git checkout developer | Trocar para a Branch "developer" |
+| git checkout -b feature1 | Criar uma nova Branch e Trocar |
+| git branch -d feature1 | Apagar uma Branch "feature1" |
+
 
 ## Criando uma feature a partir de developer
-[developer] -> [feature1]
 ```
+git checkout developer 
 git checkout -b feature1
+```
+*Fazer modificações no projeto*
+```
 git add .
-git commit -m "feature1"
+git commit -m "feature1 xpto"
 git push -u origin feature1
 ```
 
 ## Juntando a feature na developer
-[feature1] -> [developer]
 ```
 git checkout developer
 git merge feature1
