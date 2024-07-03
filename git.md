@@ -58,6 +58,7 @@ git push
 
 | Comando      |  Descrição |
 |--------------|------------|
+| git status | Ver status do projeto |
 | git log | Ver logs de commits |
 | git log file.txt | Ver logs de um arquivo |
 | git log --oneline | Ver logs resumido |
