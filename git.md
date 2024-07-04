@@ -1,5 +1,10 @@
 # Git Cheat Sheet
 
+### Quick Referente:
+<https://git-scm.com/docs>\
+<https://ndpsoftware.com/git-cheatsheet.html#google_vignette>
+
+
 ## Iniciar um projeto 
 
 | Comando      |  Descrição |
