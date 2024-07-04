@@ -62,7 +62,7 @@ kubectl run --image=busybox --restart=Never --rm -it -- sh
 | ImagePullBackOff | O kubernetes tentou fazer download da imagem especificada, mas falhou após várias tentativas. |
 | OutOfMemory | O container ficou sem memória. |
 
-### ## Fluxo de análise NODE
+### Fluxo de análise NODE
 
 | Item | Verificação | Verificação |
 |------|-------------|-------------|
