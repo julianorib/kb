@@ -33,6 +33,8 @@ TR: Substituir um caracter por outro em um comando:
 echo $PATH | tr ":" "\n"
 ```
 
+GREP: <https://www.geeksforgeeks.org/grep-command-in-unixlinux/>
+
 GREP: Mostrar somente conteúdo descomentado de um arquivo:
 ```
 cat rsyslog.conf | grep -v "^#" | grep -v "^$"
@@ -114,6 +116,8 @@ rsync -av -e ssh /origem/ root@servidor:/destino/
 | ps aux | Ver processos em execução |
 | kill | Finalizar um processo |
 | lsof | Visualizar processos por várias opções | 
+| free -h | Visualizar memória | 
+| cat /proc/cpuinfo | Visualizar cpu |
 
 
 Ver arquivos em uso por usuário, processo, etc.
