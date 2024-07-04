@@ -1,6 +1,10 @@
 # Docker Cheat Sheet
 
-## Containers
+### Quick Referente:
+
+<https://docs.docker.com/get-started/docker_cheatsheet.pdf>
+
+### Containers
 
 | Comando      |  Descrição |
 |--------------|------------|
@@ -17,7 +21,7 @@
 | docker rm -f containerId | apagar um container forçadamente |
 | docker container prune | limpar containers inativos |
 
-## Imagens
+### Imagens
 
 | Comando      |  Descrição |
 |--------------|------------|
@@ -28,7 +32,7 @@
 | docker image rm -f imagem | apagar uma imagem forçadamente |
 | docker image prune | limpar imagens inativas | 
 
-## Repositório
+### Repositório
 
 | Comando      |  Descrição |
 |--------------|------------|

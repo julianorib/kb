@@ -1,6 +1,6 @@
 # Kubernetes Cheat Sheet
 
-Quick Referente:\
+### Quick Referente:
 <https://kubernetes.io/docs/reference/kubectl/quick-reference/>\
 <https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong->
 
@@ -33,6 +33,11 @@ kubectl exec pod/my-pod -n namesXpto -- sh
 kubectl port-forward pod-name 8080:<port-container>
 ```
 
+### Executar um Pod com Shell interativo e depois remove-lo.
+```
+kubectl run --image=busybox --restart=Never --rm -it -- sh
+```
+
 ### Fluxo de análise POD
 | Descrição | get | describe | logs |
 |-----------|-----|----------|------|
@@ -44,3 +49,24 @@ kubectl port-forward pod-name 8080:<port-container>
 | Se tiver volumes            | kubectl get pvc           | kubectl describe pvc          | kubectl logs pvc            |
 | Ingress Controller          | kubectl get ingress       | kubectl describe ingress      | kubectl logs ingress        |
 | Ingress Router              | kubectl get ingressroute  | kubectl describe ingressroute | kubectl logs ingressroute   |
+
+### Erros mais comuns
+
+| Erro | Descrição |
+|------|-----------|
+| CreateContainerConfigError | O kubernetes não consegiuu criar o container devido a um erro de configuração |
+| InvalidImageName | O kubernetes não consegiu inspecionar a imagem para determinar se ela está configurada corretamente.
+| ErrImageNverPull | O kubernetes não conseguiu encontrar a Imagem especificada em um registro de containers e não tentará fazer download novamente. |
+| ContainerCannotRun | O kubernetes não conseguiu executar o container por algum motivo. |
+| CrashLoopBackOff | O container foi iniciado, mas parou de funcionar por algum motivo e o kubernetes está tentando reinicia-lo. |
+| ImagePullBackOff | O kubernetes tentou fazer download da imagem especificada, mas falhou após várias tentativas. |
+| OutOfMemory | O container ficou sem memória. |
+
+### ## Fluxo de análise NODE
+
+| Item | Verificação | Verificação |
+|------|-------------|-------------|
+| Componentes         | kubectl get componentstatuses     | kubectl get pods -n kube-system |
+| Status Nodes        | kubectl get nodes                 | kubectl describe node           |
+| Kubelet OK      ?   | systemctl status kubelet          |                                 |
+| Kubelet com erro?   | journalctl -u kubelet -n 100      |                                 |
