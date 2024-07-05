@@ -1,8 +1,11 @@
 # Powershell Cheat Sheet
 
+Ajuda:
+```
 Get-help 
 Get-Help command
 Get-Command
+```
 
 ## Comuns
 | Comando | Sinonimo | 
