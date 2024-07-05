@@ -10,6 +10,7 @@ Get-Command
 ## Comuns
 | Comando | Sinonimo | 
 |---------|----------|
+| findstr | grep |
 | Set-Location | cd |
 | Get-Content | cat |
 | Get-Children | ls |
