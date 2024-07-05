@@ -17,6 +17,11 @@
 
 ### Aplicações
 
+Visualizar parametros de configuração de uma aplicação:
+```
+helm show values repo/chart
+```
+
 Instalar uma aplicação:
 ```
 helm update --install chartnovo repo/chart
