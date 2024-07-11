@@ -33,6 +33,7 @@ ansible-galaxy init <roleName>
 ### Opções Avançadas linha de comando
 | Opções | Descrição |
 |--------|-----------|
+|  --extra-vars "variavel=valor"  | Informa o valor de uma variável na execução |
 | --list-hosts | Mostra os hosts que será aplicado para conferência |
 | --limit=grupo/host | Aplica o playbook somente para 1 grupo ou 1 host |
 | --list-tasks | Mostra as Tasks que será aplicado para conferência |
