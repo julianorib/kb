@@ -55,3 +55,31 @@ host_key_checking=False
 interpreter_python=auto_legacy_silent
 ```
 
+
+### Example playbook: xpto.yaml
+```
+- name: Playbook example
+  hosts: all
+  become: yes
+  tasks:
+    - name: Task de um playbook
+      ansible.builtin.debug:
+        msg: "Este é uma task de um playbook {{ variavel }}"
+```
+### Example role: main.yaml
+```
+- name: Playbook with roles
+  hosts: manager
+  roles:
+    - role1
+  hosts: worker
+    - role2
+```
+### Example task: role1/tasks/main.yaml
+```
+---
+  - name: Executando role
+    ansible.builtin.debug:
+      msg: "Esta é uma role {{ variavel }}"
+```
+
