@@ -8,57 +8,55 @@ Listar somente pastas ocultas
 ```
 ls -dl .*/ 
 ```
-FIND: Pesquisar arquivos maiores de 1GB
+#### FIND: Pesquisar arquivos maiores de 1GB
 ```
 find /pasta/ -type f -size +1G 
 ```
 
-FIND: Pesquisar um arquivo e executar um comando para cada resultado 
+#### FIND: Pesquisar um arquivo e executar um comando para cada resultado 
 ```
 find /pasta -name arquivo.txt -exec ls -lh {} \; 
 ```
 
-FIND: Pesquisar arquivos com o conteúdo especifico dentro
+#### FIND: Pesquisar arquivos com o conteúdo especifico dentro
 ```
 find . -name "file*" -exec grep -Hin "text" {} \; 
 ```
 
-SED: Substituir uma linha em um arquivo sem entrar dentro dele:
+#### SED: Substituir uma linha em um arquivo sem entrar dentro dele:
 ```bash
 sed -i "s/#Listen=80/Listen=8080/g" arquivo.txt
 ```
 
-TR: Substituir um caracter por outro em um comando:
+#### TR: Substituir um caracter por outro em um comando:
 ```
 echo $PATH | tr ":" "\n"
 ```
 
-GREP: <https://www.geeksforgeeks.org/grep-command-in-unixlinux/>
-
-GREP: Mostrar somente conteúdo descomentado de um arquivo:
+#### GREP: Mostrar somente conteúdo descomentado de um arquivo:
+<https://www.geeksforgeeks.org/grep-command-in-unixlinux/>
 ```
 cat rsyslog.conf | grep -v "^#" | grep -v "^$"
 ```
 
-GREP: Mostrar as 3 linhas antes e 2 linhas depois do conteúdo filtrado (foo)
+#### GREP: Mostrar as 3 linhas antes e 2 linhas depois do conteúdo filtrado (foo)
 ```
 grep -B 3 -A 2 foo README.txt
 ```
 
-SED: Mostrar uma linha especifica em um arquivo:
+#### SED: Mostrar uma linha especifica em um arquivo:
 ```
 cat arquivo.conf | sed -n '2p' 
 ```
 
-AWK: Formatar output 
+#### AWK: Formatar output 
 ```
 ps aux | awk '{print $11}'
 ```
 Será exibido a 11a coluna
 
 
-CUT: Formatar output separado por um delimitador.
-
+#### CUT: Formatar output separado por um delimitador.
 Primeira coluna : Segunda Coluna
 ```
 cut -d ':' -f 2
@@ -71,14 +69,14 @@ Será exibido o texto após o :
 | -f 2/3/4 | Define a coluna que será exibida |
 
 
-TAIL: Filtrando as palavras que deseja visualizar:
+#### TAIL: Filtrando as palavras que deseja visualizar:
 ```bash
 tail -f arquivo.log | grep 'filtro'
 tail -f arquivo.log | egrep (filtro1|filtro2)
 tail -f arquivo.log | egrep "filtro1|filtro2|filtro3"
 ```
 
-RSYNC: Sincronizar arquivo mantendo as permissões:
+#### RSYNC: Sincronizar arquivo mantendo as permissões:
 ```bash
 rsync -avh --progress /origem/	/destino/
 rsync -av -e ssh /origem/ root@servidor:/destino/
