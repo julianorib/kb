@@ -50,6 +50,27 @@ SED: Mostrar uma linha especifica em um arquivo:
 cat arquivo.conf | sed -n '2p' 
 ```
 
+AWK: Formatar output 
+```
+ps aux | awk '{print $11}'
+```
+Será exibido a 11a coluna
+
+
+CUT: Formatar output separado por um delimitador.
+
+Primeira coluna : Segunda Coluna
+```
+cut -d ':' -f 2
+```
+Será exibido o texto após o :
+
+| Opções | Descrição |
+|--------|-----------|
+| -d ' ' | Delimitador da separação do texto |
+| -f 2/3/4 | Define a coluna que será exibida |
+
+
 TAIL: Filtrando as palavras que deseja visualizar:
 ```bash
 tail -f arquivo.log | grep 'filtro'
