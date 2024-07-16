@@ -32,6 +32,7 @@
 |--------------|------------|
 | git tag | Listar Tags criadas |
 | git tag v0.1 | Adicionar uma Tag |
+| git tag -d v0.1 | Remover uma Tag |
 | git push --tags | Subir tag no repostitório remoto |
 
 
