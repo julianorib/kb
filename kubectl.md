@@ -4,6 +4,21 @@
 <https://kubernetes.io/docs/reference/kubectl/quick-reference/>\
 <https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong->
 
+### Completion
+powershell
+```
+kubectl completion powershell | Out-String | Invoke-Expression
+kubectl completion powershell  >> $PROFILE
+```
+bash:
+```
+kubectl completion bash > /etc/bash_completion.d/kubectl
+```
+zsh
+```
+kubectl completion zsh > "${fpath[1]}/_kubectl"
+```
+
 
 ### Importar Config com Variável de Sistema:
 ```
