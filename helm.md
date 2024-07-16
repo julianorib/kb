@@ -5,6 +5,21 @@
 <https://helm.sh/docs/intro/cheatsheet/>
 
 
+### Completion
+powershell
+```
+helm completion powershell | Out-String | Invoke-Expression
+helm completion powershell >> $PROFILE
+```
+bash:
+```
+helm completion bash > /etc/bash_completion.d/helm
+```
+zsh
+```
+helm completion zsh > "${fpath[1]}/_helm"
+```
+
 ### Repositório
 
 | Comando | Descrição | 
