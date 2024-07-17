@@ -4,6 +4,16 @@
 
 <https://docs.docker.com/get-started/docker_cheatsheet.pdf>
 
+### Completion
+bash:
+```
+docker completion bash > /etc/bash_completion.d/docker
+```
+zsh
+```
+docker completion zsh > "${fpath[1]}/_docker"
+```
+
 ### Containers
 
 | Comando      |  Descrição |
