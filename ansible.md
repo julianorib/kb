@@ -56,7 +56,6 @@ host_key_checking=False
 interpreter_python=auto_legacy_silent
 ```
 
-
 ### Example playbook: xpto.yaml
 ```
 - name: Playbook example
