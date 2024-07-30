@@ -13,6 +13,7 @@ Get-Command
 | findstr | grep |
 | Set-Location | cd |
 | Get-Content | cat |
+| Get-Content arquivo.txt -Tail 10 -Wait | tail |
 | Get-Children | ls |
 | Copy-Item | cp |
 | Move-Item | mv |
