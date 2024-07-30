@@ -8,6 +8,7 @@
 - [Helm](helm.md)
 - [Ansible](ansible.md)
 - [Terraform](terraform.md)
+- [Zabbix](zabbix.md)
 - [Powershell](ps.md)
 - [Bash](https://devhints.io/bash)
 - [Python](https://github.com/devops-cheat-sheets/python-cheat-sheet)
