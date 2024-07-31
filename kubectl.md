@@ -51,8 +51,8 @@ kubectl get all -A
 | Verificar status do Deploy  | kubectl get deploy        | kubectl describe deploy       | kubectl logs deploy         |
 | Verificar status do Service | kubectl get service       | kubectl describe service      | kubectl logs service        |
 | Verificar Endpoints         | kubectl get endpoints     | kubectl describe endpoint     | kubectl logs endpoints      |
-| Verificar olumes            | kubectl get pv            | kubectl describe pv           | kubectl logs pv             |
-| Verificarvolumes            | kubectl get pvc           | kubectl describe pvc          | kubectl logs pvc            |
+| Verificar volumes            | kubectl get pv            | kubectl describe pv           | kubectl logs pv             |
+| Verificar volumes            | kubectl get pvc           | kubectl describe pvc          | kubectl logs pvc            |
 | Ingress Controller          | kubectl get ingress       | kubectl describe ingress      | kubectl logs ingress        |
 | Ingress Router              | kubectl get ingressroute  | kubectl describe ingressroute | kubectl logs ingressroute   |
 | Config Maps (variáveis)     | kubectl get configmap     | kubectl describe configmap    |             |
