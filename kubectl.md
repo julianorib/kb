@@ -31,6 +31,33 @@ export KUBECONFIG="${KUBECONFIG}:./config"
 kubectl config set-context --current --namespace=xpto
 ```
 
+### Verificar recursos gerais de um namespace
+```
+kubectl get all -n namespace
+```
+
+### Verificar recursos gerais de todos namespaces
+```
+kubectl get all -A
+```
+
+### Principais Recursos
+| Descrição | get | describe | logs |
+|-----------|-----|----------|------|
+| Verificar Namespaces        | kubectl get namespace     | kubectl describe namespace    |             |
+| Verificar status dos Nodes  | kubectl get nodes         | kubectl describe nodes        |             |
+| Verificar status do POD     | kubectl get pods          | kubectl describe pod          | kubectl logs pod            |
+| Verificar status do Replicaset  | kubectl get replicaset        | kubectl describe replicaset       | kubectl logs replicaset         |
+| Verificar status do Deploy  | kubectl get deploy        | kubectl describe deploy       | kubectl logs deploy         |
+| Verificar status do Service | kubectl get service       | kubectl describe service      | kubectl logs service        |
+| Verificar Endpoints         | kubectl get endpoints     | kubectl describe endpoint     | kubectl logs endpoints      |
+| Verificar olumes            | kubectl get pv            | kubectl describe pv           | kubectl logs pv             |
+| Verificarvolumes            | kubectl get pvc           | kubectl describe pvc          | kubectl logs pvc            |
+| Ingress Controller          | kubectl get ingress       | kubectl describe ingress      | kubectl logs ingress        |
+| Ingress Router              | kubectl get ingressroute  | kubectl describe ingressroute | kubectl logs ingressroute   |
+| Config Maps (variáveis)     | kubectl get configmap     | kubectl describe configmap    |             |
+| Secrets (variáveis sensiveis)| kubectl get secrets      | kubectl describe secrets      |             |
+
 ### Ver logs de um POD
 ```
 kubectl logs -f my-pod -n namesXpto
@@ -52,18 +79,6 @@ kubectl port-forward pod-name 8080:<port-container>
 ```
 kubectl run --image=busybox --restart=Never --rm -it -- sh
 ```
-
-### Fluxo de análise POD
-| Descrição | get | describe | logs |
-|-----------|-----|----------|------|
-| Verificar status do POD     | kubectl get pods          | kubectl describe pod          | kubectl logs pod            |
-| Verificar status do Deploy  | kubectl get deploy        | kubectl describe deploy       | kubectl logs deploy         |
-| Verificar status do Service | kubectl get service       | kubectl describe service      | kubectl logs service        |
-| Verificar Endpoints         | kubectl get endpoints     | kubectl describe endpoint     | kubectl logs endpoints      |
-| Se tiver volumes            | kubectl get pv            | kubectl describe pv           | kubectl logs pv             |
-| Se tiver volumes            | kubectl get pvc           | kubectl describe pvc          | kubectl logs pvc            |
-| Ingress Controller          | kubectl get ingress       | kubectl describe ingress      | kubectl logs ingress        |
-| Ingress Router              | kubectl get ingressroute  | kubectl describe ingressroute | kubectl logs ingressroute   |
 
 ### Erros mais comuns
 
