@@ -70,6 +70,11 @@ kubectl exec my-pod -- ls /
 kubectl exec pod/my-pod -n namesXpto -- sh
 ```
 
+### Escalar um POD manualmente
+```
+kubectl scale --replicas=3 deployment/EXAMPLE
+```
+
 ### Fazer um Port-Forward de testes:
 ```
 kubectl port-forward pod-name 8080:<port-container>
