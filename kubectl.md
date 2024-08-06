@@ -65,9 +65,10 @@ kubectl logs -f my-pod -n namesXpto
 
 ### Interagir com um POD
 ```
-kubectl exec my-pod -- sh
 kubectl exec my-pod -- ls /
-kubectl exec pod/my-pod -n namesXpto -- sh
+kubectl exec pod/my-pod -n namesXpto -- ls /
+kubectl exec my-pod -it -- sh
+
 ```
 
 ### Escalar um POD manualmente
