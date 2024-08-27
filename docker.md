@@ -51,3 +51,16 @@ docker completion zsh > "${fpath[1]}/_docker"
 | docker push user/imagem:v1.0 | Subir uma imagem para o Registry |
 | docker tag user/imagem:v1.0 user/imagem:latest | Tagear uma imagem como latest |
 | docker push user/imagem:latest | Subir a imagem latest para o Registry |
+
+
+### Manutenção
+
+| Comando      |  Descrição |
+|--------------|------------|
+| docker system df | Visualizar espaços utilizados |
+| docker system df -v | Visualizar espaços utilizados |
+| docker container prune | Limpeza de containers não utilizados |
+| docker image prune | Limpeza de imagens não utilizadas |
+| docker volume prune | Limpeza de volumes não utilizados | 
+| docker system prune -a | Limpeza de objetos não utilizados |
+| docker system prune -a --volumes -f | Limpeza completa forçada |
