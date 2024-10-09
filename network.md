@@ -20,6 +20,7 @@
 | nslookup | Verificar registros DNS |
 | route | Ver tabela de roteamento |
 | netstat -na | Exibir conexões ativas |
+| netstat -ltu | Exibir somente portas abertas |
 | ss -ant | Exibir conexões de escuta |
 | nmap | Ver portas TCP abertas em um destino |
 | nmap -sU -v | Ver portas UDP abertas em um destino |
