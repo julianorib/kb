@@ -101,7 +101,7 @@ ansible-galaxy init <roleName>
 
 ### Execução de Role diretamente, sem um playbook especificando as roles.
 ```
-ansible localhost --module-name import_role --args name=RoleXpto
+ansible localhost -m import_role -a name=RoleXpto
 ```
 
 ### Instalação de Collections
