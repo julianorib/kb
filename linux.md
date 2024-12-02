@@ -156,3 +156,24 @@ lsof -t /pasta
 | echo $MYVAR | Visualizar uma variável $MYVAR |
 | unset MYVAR | Remover uma variável MYVAR |
 
+### Bibliotecas
+Ver as bibliotecas que um aplicativo/executável utiliza:
+```bash
+ldd /bin/bash
+```
+
+### Containers 
+chroot
+namespace (unshare)
+cgroups cgexec
+
+Exemplo:
+```
+mkdir /sys/fs/cgroup/xpto && cgexec -g cpu,memory,pids:/xpto unshare --pid --uts --mount --fork chroot /home/user/xpto
+```
+
+#### ref:
+<https://www.youtube.com/watch?v=S7Hv2CdNmuA>/
+<https://www.youtube.com/watch?v=FCSVTLza35k>/
+<https://www.youtube.com/watch?v=hDaSWsoUdw8&t=6s>
+
