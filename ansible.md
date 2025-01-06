@@ -10,7 +10,8 @@ Conditionals: <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_
 Vars Facts: <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_vars_facts.html>\
 Filters: <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_filters.html>\
 Loops: <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_loops.html>\
-Boas Práticas: <https://amaurybsouza.medium.com/as-boas-pr%C3%A1ticas-do-ansible-que-ningu%C3%A9m-te-conta-e-que-n%C3%A3o-existem-no-google-4fcc3126ad1>
+Boas Práticas: <https://amaurybsouza.medium.com/as-boas-pr%C3%A1ticas-do-ansible-que-ningu%C3%A9m-te-conta-e-que-n%C3%A3o-existem-no-google-4fcc3126ad1>\
+Estratégias execução: <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_strategies.html#id5>
 
 ### Configuração para ignorar checagem de Host.
 
