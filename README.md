@@ -2,6 +2,7 @@
 
 - [Linux](linux.md)
 - [Network](network.md)
+- [Netcat](netcat.md)
 - [Docker](docker.md)
 - [Git](git.md)
 - [Kubernetes](kubectl.md)

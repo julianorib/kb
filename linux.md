@@ -2,6 +2,7 @@
 
 Quick Reference:
 <https://linuxconfig.org/linux-commands-cheat-sheet>
+<https://www.youtube.com/watch?v=_ybwGqrWUeA>
 
 ### Arquivos e Diretórios
 Listar somente pastas ocultas
@@ -148,6 +149,11 @@ lsof -i:porta (80)
 lsof -t /pasta
 ```
 
+### Servidor Web rápido (testes)
+```
+python3 -m http.server 
+```
+
 ### Variáveis
 | Comando | Descrição |
 |---------|-----------|
@@ -176,4 +182,5 @@ mkdir /sys/fs/cgroup/xpto && cgexec -g cpu,memory,pids:/xpto unshare --pid --uts
 <https://www.youtube.com/watch?v=S7Hv2CdNmuA>/
 <https://www.youtube.com/watch?v=FCSVTLza35k>/
 <https://www.youtube.com/watch?v=hDaSWsoUdw8&t=6s>
+
 
