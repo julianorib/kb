@@ -36,6 +36,11 @@ mysql ansible_host=10.1.1.4 ansible_user="root" ansible_password="xpto@123"
 ansible -i hosts.cfg webservers -u root --private-key KeyFile -m shell -a "ls /root"
 ```
 
+### Ver informações do Host (raw) 
+```
+ansible -i hosts.cfg <hostname> -m setup
+```
+
 ### Explicando a linha de comando
 | Opções | Descrição |
 |--------|-----------|
