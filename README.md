@@ -11,7 +11,10 @@
 - [Terraform](terraform/terraform.md)
 - [Zabbix](zabbix.md)
 - [Powershell](ps.md)
-- [Observabilidade](observ.md)
 - [Bash](https://devhints.io/bash)
 - [Python](https://github.com/devops-cheat-sheets/python-cheat-sheet)
 - [SQL](https://devhints.io/mysql)
+
+
+- [DevOps](devops.md)
+- [Observabilidade](observ.md)
