@@ -19,7 +19,7 @@ Continuous Delivery/ Deployment
 
 ## Pipeline Completa 
 
-Um exemplo de estágios para uma pipeline super completa.\
+Um exemplo de estágios para uma pipeline super completa.
 
 - Test Smoke
 - Test Unitário
