@@ -1,0 +1,16 @@
+config:
+# publish data to loki
+  clients:
+    - url: http://loki-gateway/loki/api/v1/push
+      tenant_id: 1
+
+resources: 
+  limits:
+    cpu: 200m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 256Mi
+
+serviceAccount:
+  automountServiceAccountToken: false

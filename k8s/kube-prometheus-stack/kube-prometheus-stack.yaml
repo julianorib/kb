@@ -1,0 +1,74 @@
+grafana:
+  adminPassword: Dev2009
+  resources: 
+    limits:
+      cpu: 200m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+  persistence:
+    type: pvc
+    enabled: true
+    storageClassName: nfs-client
+    accessModes:
+      - ReadWriteOnce
+    size: 10Gi
+    finalizers:
+      - kubernetes.io/pvc-protection
+  serviceAccount:
+    autoMount: false
+
+prometheus:
+  prometheusSpec:
+    resources: 
+      limits:
+        cpu: 200m
+        memory: 1024Mi
+      requests:
+        cpu: 100m
+        memory: 512Mi
+    storageSpec: 
+      volumeClaimTemplate:
+        spec:
+          storageClassName: nfs-client
+          accessModes: ["ReadWriteMany"]
+          resources:
+            requests:
+              storage: 10Gi
+  serviceAccount:
+    automountServiceAccountToken: false
+
+alertmanager:
+  enabled: false
+
+prometheus-node-exporter:
+  resources: 
+    limits:
+      cpu: 10m
+      memory: 32Mi
+    requests:
+      cpu: 5m
+      memory: 20Mi
+
+kube-state-metrics:
+  resources: 
+    limits:
+      cpu: 20m
+      memory: 64Mi
+    requests:
+      cpu: 10m
+      memory: 32Mi
+  serviceAccount:
+    automountServiceAccountToken: false
+
+prometheusOperator:
+  resources: 
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 50m
+      memory: 64Mi
+  serviceAccount:
+    automountServiceAccountToken: false
