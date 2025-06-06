@@ -14,12 +14,12 @@ Procurar a seção:
 Modificar a registry.configs e registry.mirrors para que fique da seguinte forma:
 ```
       [plugins."io.containerd.grpc.v1.cri".registry.configs]
-          [plugins."io.containerd.grpc.v1.cri".registry.configs."registry.v2.unicoob.local.tls"]
+          [plugins."io.containerd.grpc.v1.cri".registry.configs."registry.domain.local.tls"]
             insecure_skip_verify = true
 
       [plugins."io.containerd.grpc.v1.cri".registry.mirrors]
-        [plugins."io.containerd.grpc.v1.cri".registry.mirrors."registry.v2.unicoob.local"]
-          endpoint = ["http://registry.v2.unicoob.local"]
+        [plugins."io.containerd.grpc.v1.cri".registry.mirrors."registry.domain.local"]
+          endpoint = ["http://registry.domain.local"]
 ```
 
 Por fim, Criar uma secret com usuário e senha no Kubernetes
