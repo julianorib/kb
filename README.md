@@ -5,7 +5,7 @@
 - [Netcat](netcat.md)
 - [Docker](docker.md)
 - [Git](git.md)
-- [Kubernetes](kubectl.md)
+- [Kubernetes](k8s/kubectl.md)
 - [Helm](helm.md)
 - [Ansible](ansible.md)
 - [Terraform](terraform.md)
