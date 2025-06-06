@@ -18,6 +18,6 @@ kubeadm token create --print-join-command
 
 Copie a linha de join e execute no novo Node.
 ```
-kubeadm join kubernetes.dev.unicoob.local:6443 --token 2t33fb.n7quoe0hrfvq6v8o --discovery-token-ca-cert-hash sha256:9893deeee39e451c02181b5e62be381f381fbe0b27bf5e71f2476ee82f31eb9b
+kubeadm join kubernetes.domain.local:6443 --token 2t33fb.n7quoe0hrfvq6v8o --discovery-token-ca-cert-hash sha256:9893deeee39e451c02181b5e62be381f381fbe0b27bf5e71f2476ee82f31eb9b
 ```
 
