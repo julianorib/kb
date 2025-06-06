@@ -8,7 +8,7 @@
 - [Kubernetes](k8s/kubectl.md)
 - [Helm](helm.md)
 - [Ansible](ansible.md)
-- [Terraform](terraform.md)
+- [Terraform](terraform/terraform.md)
 - [Zabbix](zabbix.md)
 - [Powershell](ps.md)
 - [Bash](https://devhints.io/bash)
