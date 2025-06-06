@@ -10,3 +10,4 @@
 - [Imagens apk - Melange](https://edu.chainguard.dev/open-source/build-tools/melange/getting-started-with-melange/)
 - [Scans Vulnerabilidades](scan.md)
 - [Docker Swarm](swarm.md)
+- [Troubleshooting](troubleshooting.md)
