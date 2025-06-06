@@ -1,0 +1,45 @@
+---
+  - name: Consultar se existe kubelet
+    shell: netstat -ltun | grep :10250
+    register: kubelet
+    ignore_errors: true
+  
+  - name: Consultar se existe apiserver
+    shell: netstat -ltun | grep :6443
+    register: apiserver
+    ignore_errors: true
+  
+  - name: Consultar se existe etcd
+    shell: netstat -ltun | grep :2379
+    register: etcd
+    ignore_errors: true
+  
+  - name: Configurar kubelet
+    lineinfile:
+      path: /var/lib/kubelet/config.yaml
+      state: present
+      line: "tlsCipherSuites: [TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384]"
+    when: kubelet is succeeded
+  
+
+  - name: Restart kubelet
+    systemd:
+      name: kubelet
+      state: restarted
+    when: kubelet is succeeded
+
+  - name: Configurar apiserver
+    lineinfile:
+      path: /etc/kubernetes/manifests/kube-apiserver.yaml 
+      state: present
+      insertbefore: '^(.*)image:(.*)'
+      line: "    - --tls-cipher-suites=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+    when: apiserver is succeeded
+
+  - name: Configurar etcd
+    lineinfile:
+      path: /etc/kubernetes/manifests/etcd.yaml
+      state: present
+      insertbefore: '^(.*)image:(.*)'
+      line: "    - --cipher-suites=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+    when: etcd is succeeded      

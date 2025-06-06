@@ -1,0 +1,20 @@
+name: Externo
+on:
+  workflow_call:
+    inputs: 
+      ambiente:
+        type: string
+        required: true
+        description: "ambiente da aplicação"
+    secrets:
+      senha:
+        required: true
+        description: "senhaqualquer"
+jobs:
+  teste-codigo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executando teste xpto
+        run: |
+          echo "Executando teste em ${{ inputs.ambiente }}"
+          echo "Utilizando secrets $${{ secrets.senha }}"

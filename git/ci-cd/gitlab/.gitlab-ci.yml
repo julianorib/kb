@@ -1,0 +1,35 @@
+stages:
+    - test
+    - build
+    - deploy
+
+Testes:   
+    stage: test
+    script:
+      - echo "Running tests"
+
+Docker Build:
+    stage: build
+    image: docker
+    services:
+      - docker:dind
+    before_script:
+      - docker login -u $REPO_USER -p $REPO_PASS docker.io
+    script:
+      - docker build -t $REPO/myapp:v1.1 .
+      - docker push $REPO/myapp:v1.1
+      - docker tag $REPO/myapp:v1.1 $REPO/myapp:latest
+      - docker push $REPO/myapp:latest
+    only:
+      - main
+
+Deploy Kubernetes:
+      stage: deploy
+      image: 
+        name: bitnami/kubectl
+        entrypoint: [""]
+      before_script:
+        - export KUBECONFIG=$KUBE_CREDENTIALS
+      script:
+        - kubectl apply -f k8s/
+

@@ -1,0 +1,96 @@
+name: Minha pipeline
+on:
+  workflow_dispatch:
+  push: 
+  #   branches: ["main"]
+  #   tags:
+  #     - v*
+
+  # concurrency: umporvez
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  primeiro-job:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: primeiro passo
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: echo "aprendendo github actions"
+
+  developer-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execução em developer apenas
+        if: ${{ github.ref == 'refs/heads/developer' }}
+        run: echo "executando somente em developer"
+
+  hotfix-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execução em hotfix alguma coisa
+        if: ${{ contains(github.ref,'refs/heads/hotfix') }}
+        run: echo "executando somente em hotfix alguma coisa"
+
+  testes-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Testes
+        run: sleep 20
+
+  erros-job:
+    runs-on: ubuntu-latest
+    needs: [testes-job]
+    if: ${{ failure() }}
+    steps:
+      - name: Executa somente se houver status de erros anteriores
+        run: echo "Avisar sobre o erro"
+
+  action_job:
+    name: instalação node-js
+    runs-on: ubuntu-latest
+    steps:
+      - name: verificar versao
+        run: node --version
+
+      - name: atuaizar versao
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.13.1'
+
+      - name: verificar versao novamente
+        run: node --version
+
+  action_docker_login:
+    name: fazer login no docker
+    runs-on: ubuntu-latest
+    needs: [action_job]
+    steps:
+      - uses: docker/login-action@v3
+        with: 
+          username: ${{ secrets.DOCKER_LOGIN }}
+          password: ${{ secrets.DOCKER_PASS }}
+    
+  artefato_job:
+    name: Gerando arquivo
+    runs-on: ubuntu-latest
+    steps: 
+      - name: job-artefatos
+        run: |
+          mkdir artefatos
+          echo "teste" > ./artefatos/arquivo1.txt
+  
+      - name: Subindo arquivo para o artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: meu-artefato
+          path: ./artefatos
+
+  action_externa:
+    needs: [action_docker_login]
+    uses: julianorib/actions/.github/workflows/externa.yaml@developer
+    with: 
+      ambiente: homologação
+    secrets:
+      senha: $${{ secrets.ACTION_SECRETS }}

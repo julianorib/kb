@@ -1,0 +1,13 @@
+name: Remoto
+on:
+  repository_dispatch:
+    types:
+      - teste-remoto
+
+jobs:
+  teste-codigo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executando teste xpto
+        run: |
+          echo "Executando teste em ${{ github.event.client_payload.ambiente }}"
