@@ -8,7 +8,7 @@
 - [Cotas por Namespace](cotas.md)
 - [Novo Node](newnode.md)
 - [Outros Usuarios](users.md)
-- [Registry Privado](registry.md)
+- [Registry Privado](Registry.md)
 - [Upgrade versão](upgrade.md)
 - [Problemas e Erros](troubleshooting.md)
 
