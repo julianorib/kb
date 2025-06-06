@@ -24,7 +24,7 @@
 
 ### Backend AWS
 
-backend.tf
+`backend.tf`
 ```
 terraform {
   backend "s3" {
@@ -32,7 +32,7 @@ terraform {
 }
 ```
 
-environment/dev/backend.tfvars
+`environment/dev/backend.tfvars`
 ```
 bucket = "seubucket"
 key = "terraform/dev/state"
@@ -41,7 +41,7 @@ region = "us-east-1"
 
 ### Template User data 
 
-efs.tlp
+`efs.tlp`
 ```
 #!/bin/bash
 
@@ -53,7 +53,7 @@ mount -t efs ${EFS}:/ /mnt/nfs
 echo ${EFS}:/ /mnt/nfs efs _netdev,noresvport 0 0
 ```
 
-Resource aws_instance
+`Resource aws_instance`
 ```
 resource "aws_instance" "amazonlinux" {
   ami             = data.aws_ami.amzn-linux-2023-ami.id
