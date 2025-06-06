@@ -2,6 +2,7 @@
 
 - [CheatSheet](docker.md)
 - [Exemplo Dockerfile](Dockerfile)
+- [Exemplo Dockerfile Multistage](Dockerfile-multistage)
 - [Exemplo Compose](docker-compose.yaml)
 - [Releases](https://docs.docker.com/engine/release-notes/)
 - [Lifecycle](https://docs.docker.com/release-lifecycle/)
