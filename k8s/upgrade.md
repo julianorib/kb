@@ -1,3 +1,10 @@
+# Como atualizar um Cluster Kubernetes
+
+## Playbook do Ansible
+
+<https://github.com/julianorib/kubernetes-update>
+
+## Ref:
 <https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/>
 
 - Atualize um nó do ControlPlane.
