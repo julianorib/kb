@@ -169,12 +169,12 @@ A ideia do OpenTelemetry é padronizar tudo isso. Você coleta com OpenTelemetry
 [OpenTelemetry Collector] ---> [Datadog]
                            ---> [Prometheus]
                            ---> [Grafana]
-
-
 ```
 
----
+___
 
+<br>
+<br>
 
 # 🧠 O que é APM?
 
