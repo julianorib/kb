@@ -26,3 +26,4 @@
 - [Cloud](cloud/README.md)
 - [Observabilidade](observ.md)
 - [Openstack](openstack.md)
+- [Metasloit](metasploit.md)
