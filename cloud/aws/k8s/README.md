@@ -78,3 +78,31 @@ eksctl delete cluster --name mycluster --region us-east-2
 <https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_node_group>
 
 <https://registry.terraform.io/providers/-/aws/latest/docs/resources/eks_access_entry>
+
+
+- IAM
+- - Cluster Role
+- - - AmazonEKSClusterPolicy
+- - - AmazonEKSVPCResourceController
+- - Node Role
+- - - AmazonEC2ContainerRegistryPullOnly
+- - - AmazonEKS_CNI_Policy
+- - - AmazonEKSWorkerNodePolicy
+- - - AmazonSSMManagedInstanceCore
+- - AWSServiceRoleforAmazonEKSNodeGroup
+- - - AWSServiceRoleForAmazonEKSNodeGroup
+- - AWSServiceRoleforAmazonEKS
+- - - AmazonEKSServiceRolePolicy
+
+- VPC Full 3 subnet publica / privada
+- - Private - Nat Gateway
+- - Public - Internet Gateway
+
+- Modelo de Execução
+- - AMI amazon-eks-node-1.32-v20250519
+
+- Cluster
+- - Entradas de acesso do IAM
+- - - AmazonEKSServiceRolePolicy  AmazonEKSClusterInsightsPolicy
+- - - NodeRole  
+- - - julianorib    AmazonEKSClusterAdminPolicy
