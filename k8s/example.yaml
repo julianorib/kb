@@ -1,0 +1,149 @@
+---
+# Source: template/templates/networkpolicy.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: http-web-nginx
+  namespace: nginx
+spec:
+  podSelector:
+    matchLabels:
+      app: nginx
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    ports:
+    - protocol: TCP
+      port: 8080
+---
+# Source: template/templates/sa.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+automountServiceAccountToken: false
+---
+# Source: template/templates/secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: nginx
+  namespace: nginx
+type: Opaque
+data:
+  chave1: "dmFsb3Ix"
+  chave2: "dmFsb3Iy"
+  chave3: "dmFsb3Iz"
+---
+# Source: template/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx
+  namespace: nginx
+data:
+  chave1: "valor1"
+  chave2: "valor2"
+  chave3: "valor3"
+  chave4: "valor4"
+---
+# Source: template/templates/pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: www-nginx
+  namespace: nginx
+spec:
+  accessModes:
+    -
+  storageClassName: nfs-client
+  resources:
+    requests:
+      storage: 100Mi
+---
+# Source: template/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: http-web-nginx
+  namespace: nginx
+  labels:
+    app: nginx
+spec:
+   selector:
+     app: nginx
+   ports:
+     - name: http-web
+       port: 80
+       targetPort: http-web
+   type: ClusterIP
+---
+# Source: template/templates/deploy.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  namespace: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      enableServiceLinks: false
+      serviceAccount: nginx
+      containers:
+        - name: nginx-front
+          image: nginx
+          ports:
+            - name: http-web
+              containerPort: 8080
+          resources:
+            requests:
+              memory: "100Mi"
+              cpu: 0.5
+            limits:
+              memory: "100Mi"
+              cpu: 0.5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 5
+            failureThreshold: 3
+            timeoutSeconds: 2
+          envFrom:
+            - configMapRef:
+                name: nginx
+            - secretRef:
+                name: nginx
+          volumeMounts:
+            - name: www
+              mountPath: /var/www
+      volumes:
+        - name: www
+          persistentVolumeClaim:
+            claimName: www-nginx
+---
+# Source: template/templates/hpa.yaml
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: nginx
+  namespace: nginx
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: nginx
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 70

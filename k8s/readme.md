@@ -4,6 +4,7 @@
 
 - [Conceitos](resumo.md)
 - [Instalar](install.md)
+- [Manifesto](example.yaml)
 - [Kube Prometheus Stack](kube-prometheus-stack/README.md)
 - [Certificados do Cluster](certs.md)
 - [Cotas por Namespace](cotas.md)
