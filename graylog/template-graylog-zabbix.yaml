@@ -1,0 +1,254 @@
+zabbix_export:
+  version: '6.2'
+  date: '2024-02-01T13:08:43Z'
+  template_groups:
+    -
+      uuid: 7df96b18c230490a9a0a9e2307226338
+      name: Templates
+  templates:
+    -
+      uuid: c295cbf734c4406cba59ba3b6cdb2e91
+      template: 'SICOOB - Graylog'
+      name: 'SICOOB - Graylog'
+      groups:
+        -
+          name: Templates
+      items:
+        -
+          uuid: e5c9e42d1e16464bbe2912cea30fca92
+          name: 'Cluster Indexer Health'
+          type: HTTP_AGENT
+          key: indexer.cluster.health
+          trends: '0'
+          value_type: TEXT
+          authtype: BASIC
+          username: '{$GRAYLOG_USER}'
+          password: '{$GRAYLOG_PASS}'
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - '$.["status"]'
+          timeout: 10s
+          url: 'http://{HOST.CONN}:9000/api/system/indexer/cluster/health'
+          headers:
+            -
+              name: Accept
+              value: application/json
+          tags:
+            -
+              tag: system
+              value: graylog
+          triggers:
+            -
+              uuid: ce8cd3b2c36448b08b9f43752c01c46e
+              expression: 'last(/SICOOB - Graylog/indexer.cluster.health,#1)<>"green"'
+              name: 'Verificar Indices Graylog'
+              priority: AVERAGE
+        -
+          uuid: 61aeae879ed5454dbcb52593d738c8ce
+          name: 'Buffers.input.usage %'
+          type: CALCULATED
+          key: org.graylog2.buffers.input.percent
+          units: '%'
+          params: |
+            (last(//org.graylog2.buffers.input.usage)/
+            last(//org.graylog2.buffers.input.size))*100
+          tags:
+            -
+              tag: system
+              value: graylog
+        -
+          uuid: 9d6c579be3294f9c8accf9c3c6102bc7
+          name: Buffers.input.size
+          type: HTTP_AGENT
+          key: org.graylog2.buffers.input.size
+          authtype: BASIC
+          username: '{$GRAYLOG_USER}'
+          password: '{$GRAYLOG_PASS}'
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - '$.["value"]'
+          timeout: 10s
+          url: 'http://{HOST.CONN}:9000/api/system/metrics/org.graylog2.buffers.input.size'
+          headers:
+            -
+              name: Accept
+              value: application/json
+          tags:
+            -
+              tag: system
+              value: graylog
+        -
+          uuid: a64b9f601ad24ff89b9111077144576e
+          name: Buffers.input.usage
+          type: HTTP_AGENT
+          key: org.graylog2.buffers.input.usage
+          authtype: BASIC
+          username: '{$GRAYLOG_USER}'
+          password: '{$GRAYLOG_PASS}'
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - '$.["value"]'
+          timeout: 10s
+          url: 'http://{HOST.CONN}:9000/api/system/metrics/org.graylog2.buffers.input.usage'
+          headers:
+            -
+              name: Accept
+              value: application/json
+          tags:
+            -
+              tag: system
+              value: graylog
+        -
+          uuid: 6b9a55fd18924e37be7b61cce45f8159
+          name: 'Buffers.output.usage %'
+          type: CALCULATED
+          key: org.graylog2.buffers.output.percent
+          units: '%'
+          params: |
+            (last(//org.graylog2.buffers.output.usage)/
+            last(//org.graylog2.buffers.output.size))*100
+          tags:
+            -
+              tag: system
+              value: graylog
+        -
+          uuid: 8e22e775e5d3492790d1ba80eda4cdfa
+          name: Buffers.output.size
+          type: HTTP_AGENT
+          key: org.graylog2.buffers.output.size
+          authtype: BASIC
+          username: '{$GRAYLOG_USER}'
+          password: '{$GRAYLOG_PASS}'
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - '$.["value"]'
+          timeout: 10s
+          url: 'http://{HOST.CONN}:9000/api/system/metrics/org.graylog2.buffers.output.size'
+          headers:
+            -
+              name: Accept
+              value: application/json
+          tags:
+            -
+              tag: system
+              value: graylog
+        -
+          uuid: f8e1ec2ada804123aae5f00770b4b122
+          name: Buffers.output.usage
+          type: HTTP_AGENT
+          key: org.graylog2.buffers.output.usage
+          authtype: BASIC
+          username: '{$GRAYLOG_USER}'
+          password: '{$GRAYLOG_PASS}'
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - '$.["value"]'
+          timeout: 10s
+          url: 'http://{HOST.CONN}:9000/api/system/metrics/org.graylog2.buffers.output.usage'
+          headers:
+            -
+              name: Accept
+              value: application/json
+          tags:
+            -
+              tag: system
+              value: graylog
+        -
+          uuid: 8097b42c53ad494b8ab85308ca2f0dd9
+          name: 'Buffers.process.usage %'
+          type: CALCULATED
+          key: org.graylog2.buffers.process.percent
+          units: '%'
+          params: |
+            (last(//org.graylog2.buffers.process.usage)/
+            last(//org.graylog2.buffers.process.size))*100
+          tags:
+            -
+              tag: system
+              value: graylog
+        -
+          uuid: 9b720d5adcc24d4a9633173d6077ac9f
+          name: Buffers.process.size
+          type: HTTP_AGENT
+          key: org.graylog2.buffers.process.size
+          authtype: BASIC
+          username: '{$GRAYLOG_USER}'
+          password: '{$GRAYLOG_PASS}'
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - '$.["value"]'
+          timeout: 10s
+          url: 'http://{HOST.CONN}:9000/api/system/metrics/org.graylog2.buffers.process.size'
+          headers:
+            -
+              name: Accept
+              value: application/json
+          tags:
+            -
+              tag: system
+              value: graylog
+        -
+          uuid: 578307aac39d4fa6bf413873788cc279
+          name: Buffers.process.usage
+          type: HTTP_AGENT
+          key: org.graylog2.buffers.process.usage
+          authtype: BASIC
+          username: '{$GRAYLOG_USER}'
+          password: '{$GRAYLOG_PASS}'
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - '$.["value"]'
+          timeout: 10s
+          url: 'http://{HOST.CONN}:9000/api/system/metrics/org.graylog2.buffers.process.usage'
+          headers:
+            -
+              name: Accept
+              value: application/json
+          tags:
+            -
+              tag: system
+              value: graylog
+        -
+          uuid: 0f47291010534b9182e57542909d215a
+          name: Journal.entries-uncommitted
+          type: HTTP_AGENT
+          key: org.graylog2.journal.entries-uncommitted
+          authtype: BASIC
+          username: '{$GRAYLOG_USER}'
+          password: '{$GRAYLOG_PASS}'
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - '$.["value"]'
+          timeout: 10s
+          url: 'http://{HOST.CONN}:9000/api/system/metrics/org.graylog2.journal.entries-uncommitted'
+          headers:
+            -
+              name: Accept
+              value: application/json
+          tags:
+            -
+              tag: system
+              value: graylog
+      macros:
+        -
+          macro: '{$GRAYLOG_PASS}'
+          type: SECRET_TEXT
+        -
+          macro: '{$GRAYLOG_USER}'
+          value: graylog2009_00
