@@ -32,14 +32,14 @@ resource "aws_eks_cluster" "main" {
     }
   
     role_arn = aws_iam_role.cluster.arn
-    version  = "1.31"
+    version  = var.k8s_version
   
-    bootstrap_self_managed_addons = false
+    bootstrap_self_managed_addons = true
   
     compute_config {
       enabled       = false
-      node_pools    = ["general-purpose"]
-      node_role_arn = aws_iam_role.node.arn
+      # node_pools    = ["general-purpose"]
+      # node_role_arn = aws_iam_role.node.arn
     }
   
     kubernetes_network_config {
@@ -63,10 +63,11 @@ resource "aws_eks_cluster" "main" {
   
     depends_on = [
       aws_iam_role_policy_attachment.cluster_AmazonEKSClusterPolicy,
-      aws_iam_role_policy_attachment.cluster_AmazonEKSComputePolicy,
-      aws_iam_role_policy_attachment.cluster_AmazonEKSBlockStoragePolicy,
-      aws_iam_role_policy_attachment.cluster_AmazonEKSLoadBalancingPolicy,
-      aws_iam_role_policy_attachment.cluster_AmazonEKSNetworkingPolicy,
+      aws_iam_role_policy_attachment.cluster_AmazonEKSVPCResourceController,
+     #aws_iam_role_policy_attachment.cluster_AmazonEKSComputePolicy,
+     #aws_iam_role_policy_attachment.cluster_AmazonEKSBlockStoragePolicy,
+     #aws_iam_role_policy_attachment.cluster_AmazonEKSLoadBalancingPolicy,
+     #aws_iam_role_policy_attachment.cluster_AmazonEKSNetworkingPolicy,
     ]
 }
 
@@ -74,10 +75,7 @@ resource "aws_eks_node_group" "main" {
   cluster_name    = aws_eks_cluster.main.name
   node_group_name = format("%s-eks-cluster-nodes", var.project_name)
   node_role_arn   = aws_iam_role.node.arn
-  subnet_ids      = [
-      aws_subnet.private-1a.id,
-      aws_subnet.private-1b.id,
-    ]
+  subnet_ids      = [aws_subnet.private-[*].id]
 
   scaling_config {
     desired_size = 2
@@ -92,6 +90,6 @@ resource "aws_eks_node_group" "main" {
   depends_on = [
     aws_iam_role_policy_attachment.node_AmazonEKSWorkerNodePolicy,
     aws_iam_role_policy_attachment.node_AmazonEKS_CNI_Policy,
-    aws_iam_role_policy_attachment.node_AmazonEC2ContainerRegistryReadOnly,
+    aws_iam_role_policy_attachment.node_AmazonEC2ContainerRegistryPullOnly,
   ]
 }
