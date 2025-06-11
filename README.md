@@ -1,6 +1,6 @@
-# 
+# Base de Conhecimento (knowlegde base)
 
-
+Repositório com minha base de conhecimento com as tecnologias e ferramentas que mais uso no dia a dia, e também que já tive contato e me interessei em me aprofundar.
 
 ## Cheat Sheet
 
