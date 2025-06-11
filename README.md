@@ -24,6 +24,7 @@ Repositório com minha base de conhecimento com as tecnologias e ferramentas que
 
 - [DevOps](devops.md)
 - [Cloud](cloud/README.md)
+- [Graylog][graylog/README.md]
 - [Observabilidade](observ.md)
 - [Openstack](openstack.md)
 - [Metasloit](metasploit.md)
