@@ -98,6 +98,13 @@ eksctl delete cluster --name mycluster --region us-east-2
 - - Private - Nat Gateway
 - - Public - Internet Gateway
 
+- SecurityGroups
+- - eks
+- - inbound
+- - - all all origem: o próprio sg
+- - outbound
+- - - all all destino: 0.0.0.0
+
 - Modelo de Execução
 - - AMI amazon-eks-node-1.32-v20250519
 
