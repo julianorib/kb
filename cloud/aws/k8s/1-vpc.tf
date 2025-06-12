@@ -1,3 +1,6 @@
+## Obter as AZ disponiveis
+data "aws_availability_zones" "available" {}
+
 ## Cria uma VPC
 resource "aws_vpc" "vpc" {
   cidr_block           = "10.0.0.0/16"
@@ -5,7 +8,6 @@ resource "aws_vpc" "vpc" {
   enable_dns_support   = true
   tags                 = merge({ Name = format("%s-vpc", var.project_name) }, local.common_tags)
 }
-
 
 ## Cria uma Subnet Privada na AZ 1
 resource "aws_subnet" "private-1a" {

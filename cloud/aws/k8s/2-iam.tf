@@ -1,6 +1,4 @@
-
-
-
+## IAM Role para Cluster EKS
 resource "aws_iam_role" "cluster" {
   name = format("%s-eks-auto-cluster", var.project_name)
   assume_role_policy = jsonencode({
@@ -51,6 +49,7 @@ resource "aws_iam_role_policy_attachment" "cluster_AmazonEKSVPCResourceControlle
 # }
 
 
+## IAM Role para EKS Nodes
 resource "aws_iam_role" "node" {
   name = format("%s-eks-auto-node", var.project_name)
   assume_role_policy = jsonencode({

@@ -1,3 +1,4 @@
+## Buscar AMI mais recente do Amazon Linux
 data "aws_ami" "amzn-linux-2023-ami" {
   most_recent = true
   owners      = ["amazon"]
@@ -12,6 +13,7 @@ resource "aws_key_pair" "main" {
   public_key = file("id_rsa.pub")
 }
 
+## Security Group para acesso SSH
 resource "aws_security_group" "linux" {
   name   = format("%s-sg-linux", var.project_name)
   vpc_id = aws_vpc.vpc.id
@@ -39,21 +41,22 @@ resource "aws_security_group" "linux" {
   tags = merge({ Name = format("%s-sg-linux", var.project_name) }, local.common_tags)
 }
 
-
-resource "aws_instance" "main" {
+## Instância Linux
+resource "aws_instance" "linux" {
   ami                         = data.aws_ami.amzn-linux-2023-ami.id
   instance_type               = "t2.micro"
   key_name                    = aws_key_pair.main.key_name
   subnet_id                   = aws_subnet.public-1a.id
   associate_public_ip_address = true
   security_groups             = [aws_security_group.linux.id]
-  tags                        = merge({ Name = format("%s-ec2", var.project_name) }, local.common_tags)
+  tags                        = merge({ Name = format("%s-linux", var.project_name) }, local.common_tags)
   user_data                   = filebase64("${path.module}/kubectl.sh")
   lifecycle {
     ignore_changes = all
   }
 }
 
-output "ec2" {
-  value = aws_instance.main.public_ip
+## Exibir IP Publivo Linux
+output "ec2_linux" {
+  value = aws_instance.linux.public_ip
 }
