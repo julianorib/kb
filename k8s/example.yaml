@@ -22,6 +22,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: nginx
+  namespace: nginx
   labels:
     app: nginx
 automountServiceAccountToken: false
@@ -58,8 +59,8 @@ metadata:
   namespace: nginx
 spec:
   accessModes:
-    -
-  storageClassName: nfs-client
+    - ReadWriteOnce
+  storageClassName: ebs.csi.aws.com
   resources:
     requests:
       storage: 100Mi
@@ -79,7 +80,7 @@ spec:
      - name: http-web
        port: 80
        targetPort: http-web
-   type: ClusterIP
+   type: LoadBalancer
 ---
 # Source: template/templates/deploy.yaml
 apiVersion: apps/v1
@@ -105,6 +106,8 @@ spec:
           ports:
             - name: http-web
               containerPort: 8080
+          command: ["echo"]
+          args: ["$(hostname -s)", ">", "/var/www/html/index.html"]              
           resources:
             requests:
               memory: "100Mi"
@@ -112,14 +115,14 @@ spec:
             limits:
               memory: "100Mi"
               cpu: 0.5
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: 8080
-            initialDelaySeconds: 60
-            periodSeconds: 5
-            failureThreshold: 3
-            timeoutSeconds: 2
+          # livenessProbe:
+          #   httpGet:
+          #     path: /health
+          #     port: 8080
+          #   initialDelaySeconds: 60
+          #   periodSeconds: 5
+          #   failureThreshold: 3
+          #   timeoutSeconds: 2
           envFrom:
             - configMapRef:
                 name: nginx
@@ -127,7 +130,7 @@ spec:
                 name: nginx
           volumeMounts:
             - name: www
-              mountPath: /var/www
+              mountPath: /var/www/html/
       volumes:
         - name: www
           persistentVolumeClaim:

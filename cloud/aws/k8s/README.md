@@ -80,36 +80,50 @@ eksctl delete cluster --name mycluster --region us-east-2
 <https://registry.terraform.io/providers/-/aws/latest/docs/resources/eks_access_entry>
 
 
-- IAM
-- - Cluster Role
-- - - AmazonEKSClusterPolicy
-- - - AmazonEKSVPCResourceController
-- - Node Role
-- - - AmazonEC2ContainerRegistryPullOnly
-- - - AmazonEKS_CNI_Policy
-- - - AmazonEKSWorkerNodePolicy
-- - - AmazonSSMManagedInstanceCore
-- - AWSServiceRoleforAmazonEKSNodeGroup
-- - - AWSServiceRoleForAmazonEKSNodeGroup
-- - AWSServiceRoleforAmazonEKS
-- - - AmazonEKSServiceRolePolicy
+### Cluster EKS com Nodes Ondemand e Spot
 
-- VPC Full 3 subnet publica / privada
-- - Private - Nat Gateway
-- - Public - Internet Gateway
+[terraform](terraform/)
 
-- SecurityGroups
-- - eks
-- - inbound
-- - - all all origem: o próprio sg
-- - outbound
-- - - all all destino: 0.0.0.0
+É criado um Cluster EKS com 2 grupos de autoscaling, sendo 1 ondemand e 1 spot.\
+Este cluster tem acesso somente privado, e para acessá-lo, será necessário acessar uma outra Instância pública, que também é criado neste projeto.
 
-- Modelo de Execução
-- - AMI amazon-eks-node-1.32-v20250519
+Há algumas variáveis para alterar, caso sinta necessidade:
 
-- Cluster
-- - Entradas de acesso do IAM
-- - - AmazonEKSServiceRolePolicy  AmazonEKSClusterInsightsPolicy
-- - - NodeRole  
-- - - julianorib    AmazonEKSClusterAdminPolicy
+| variável | default | descrição |
+|---|---|---|
+| project_name | | nome para o projeto |
+| region | | defina a região |
+| user | | usuário que terá permissão de acesso ao cluster |
+| tag-ambiente | test | ambiente do projeto |
+| k8s_version | 1.32 | versão do kubernetes |
+| eks_public_access | false | permitir acesso publico a api |
+| eks_instance_types | t3.micro | instância dos nodes |
+| eks_ondemand_desired | 2 | tamanho desejado de Nodes Ondemand |
+| eks_ondemand_max | 3 | tamanho máximo de Nodes Ondemand |
+| eks_ondemand_min | 1 | tamanho mínimo de Nodes Ondemand |
+| eks_spot_desired | 2 | tamanho desejado de Nodes Spot |
+| eks_spot_max | 3 | tamanho máximo de Nodes Spot |
+| eks_spot_min | 1 | tamanho mínimo de Nodes Ondemand |
+
+
+#### Acesso
+
+Acesse via SSH a instância pública criada:
+```
+ssh -l ec2-user -i id_rsa <ippublic>
+```
+Configure as credenciais no `awscli`:
+```
+aws configure
+```
+
+Crie o kubeconfig:
+```
+aws eks update-kubeconfig --region region-code --name cluster-name
+```
+
+Verifique o cluster:
+```
+kubectl get nodes
+kubectl get pods -A
+```

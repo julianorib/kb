@@ -26,12 +26,12 @@ variable "eks_ondemand_desired" {
   description = "EKS Node Desired"
   default = 2
 }
-variable "eks_ondemand_Max" {
+variable "eks_ondemand_max" {
   type = number
   description = "EKS Node Max"
   default = 3
 }
-variable "eks_ondemand_Min" {
+variable "eks_ondemand_min" {
   type = number
   description = "EKS Node Min"
   default = 1
@@ -42,12 +42,12 @@ variable "eks_spot_desired" {
   description = "EKS Node Desired"
   default = 2
 }
-variable "eks_spot_Max" {
+variable "eks_spot_max" {
   type = number
   description = "EKS Node Max"
   default = 3
 }
-variable "eks_spot_Min" {
+variable "eks_spot_min" {
   type = number
   description = "EKS Node Min"
   default = 1

@@ -33,10 +33,10 @@ resource "aws_iam_role_policy_attachment" "cluster_AmazonEKSVPCResourceControlle
 #   role       = aws_iam_role.cluster.name
 # }
 
-# resource "aws_iam_role_policy_attachment" "cluster_AmazonEKSBlockStoragePolicy" {
-#   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSBlockStoragePolicy"
-#   role       = aws_iam_role.cluster.name
-# }
+resource "aws_iam_role_policy_attachment" "cluster_AmazonEKSBlockStoragePolicy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSBlockStoragePolicy"
+  role       = aws_iam_role.cluster.name
+}
 
 # resource "aws_iam_role_policy_attachment" "cluster_AmazonEKSLoadBalancingPolicy" {
 #   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSLoadBalancingPolicy"
