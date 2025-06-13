@@ -10,16 +10,6 @@ resource "aws_eks_access_entry" "user" {
   type          = "STANDARD"
 }
 
-resource "aws_eks_access_policy_association" "user_AmazonEKSAdminPolicy" {
-  cluster_name  = aws_eks_cluster.main.name
-  policy_arn    = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSAdminPolicy"
-  principal_arn = aws_eks_access_entry.user.principal_arn
-
-  access_scope {
-    type = "cluster"
-  }
-}
-
 resource "aws_eks_access_policy_association" "user_AmazonEKSClusterAdminPolicy" {
   cluster_name  = aws_eks_cluster.main.name
   policy_arn    = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
@@ -28,7 +18,22 @@ resource "aws_eks_access_policy_association" "user_AmazonEKSClusterAdminPolicy" 
   access_scope {
     type = "cluster"
   }
+  depends_on = [
+    aws_eks_cluster.main
+  ]
 }
+
+
+# resource "aws_eks_access_policy_association" "user_AmazonEKSAdminPolicy" {
+#   cluster_name  = aws_eks_cluster.main.name
+#   policy_arn    = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSAdminPolicy"
+#   principal_arn = aws_eks_access_entry.user.principal_arn
+
+#   access_scope {
+#     type = "cluster"
+#   }
+# }
+
 
 ## Security Group para acesso a API
 resource "aws_security_group" "eks_cluster_api" {
@@ -102,7 +107,10 @@ resource "aws_eks_cluster" "main" {
   }
   depends_on = [
     aws_iam_role_policy_attachment.cluster_AmazonEKSClusterPolicy,
-    aws_iam_role_policy_attachment.cluster_AmazonEKSVPCResourceController,
+    aws_iam_role_policy_attachment.cluster_AmazonEKSComputePolicy,
+    aws_iam_role_policy_attachment.cluster_AmazonEKSBlockStoragePolicy,
+    aws_iam_role_policy_attachment.cluster_AmazonEKSLoadBalancingPolicy,
+    aws_iam_role_policy_attachment.cluster_AmazonEKSNetworkingPolicy,
   ]
   tags = merge({ Name = format("%s-eks-cluster", var.project_name) }, local.common_tags)
 }
@@ -127,47 +135,57 @@ resource "aws_eks_node_group" "on_demand" {
   }
 
   depends_on = [
+    aws_iam_role_policy_attachment.node_AmazonEKSWorkerNodeMinimalPolicy,
+    aws_iam_role_policy_attachment.node_AmazonEC2ContainerRegistryPullOnly,
     aws_iam_role_policy_attachment.node_AmazonEKSWorkerNodePolicy,
     aws_iam_role_policy_attachment.node_AmazonEKS_CNI_Policy,
-    aws_iam_role_policy_attachment.node_AmazonEC2ContainerRegistryPullOnly,
+    aws_eks_cluster.main
   ]
 
   tags = merge({ Name = format("%s-eks-cluster-nodes-on-demand", var.project_name) }, local.common_tags)
 }
 
-## EKS Node Group Spot
-resource "aws_eks_node_group" "spot" {
-  cluster_name    = aws_eks_cluster.main.name
-  node_group_name = format("%s-eks-cluster-nodes-spot", var.project_name)
-  node_role_arn   = aws_iam_role.node.arn
-  subnet_ids      = [aws_subnet.private-1a.id, aws_subnet.private-1b.id, aws_subnet.private-1c.id]
-  capacity_type   = "SPOT"
-  instance_types  = var.eks_instance_types
+# ## EKS Node Group Spot
+# resource "aws_eks_node_group" "spot" {
+#   cluster_name    = aws_eks_cluster.main.name
+#   node_group_name = format("%s-eks-cluster-nodes-spot", var.project_name)
+#   node_role_arn   = aws_iam_role.node.arn
+#   subnet_ids      = [aws_subnet.private-1a.id, aws_subnet.private-1b.id, aws_subnet.private-1c.id]
+#   capacity_type   = "SPOT"
+#   instance_types  = var.eks_instance_types
 
-  scaling_config {
-    desired_size = var.eks_spot_desired
-    max_size     = var.eks_spot_max
-    min_size     = var.eks_spot_min
-  }
+#   scaling_config {
+#     desired_size = var.eks_spot_desired
+#     max_size     = var.eks_spot_max
+#     min_size     = var.eks_spot_min
+#   }
 
-  update_config {
-    max_unavailable = 1
-  }
+#   update_config {
+#     max_unavailable = 1
+#   }
 
-  depends_on = [
-    aws_iam_role_policy_attachment.node_AmazonEKSWorkerNodePolicy,
-    aws_iam_role_policy_attachment.node_AmazonEKS_CNI_Policy,
-    aws_iam_role_policy_attachment.node_AmazonEC2ContainerRegistryPullOnly,
-  ]
-  tags = merge({ Name = format("%s-eks-cluster-nodes-spot", var.project_name) }, local.common_tags)
-}
+#   depends_on = [
+#     aws_iam_role_policy_attachment.node_AmazonEKSWorkerNodeMinimalPolicy,
+#     aws_iam_role_policy_attachment.node_AmazonEC2ContainerRegistryPullOnly,
+#     aws_iam_role_policy_attachment.node_AmazonEKSWorkerNodePolicy,
+#     aws_iam_role_policy_attachment.node_AmazonEKS_CNI_Policy,
+#     aws_eks_cluster.main
+#   ]
+#   tags = merge({ Name = format("%s-eks-cluster-nodes-spot", var.project_name) }, local.common_tags)
+# }
 
 resource "aws_eks_addon" "ebs-csi-driver" {
   cluster_name             = aws_eks_cluster.main.name
   addon_name               = "aws-ebs-csi-driver"
-  service_account_role_arn = aws_iam_role.ebs.arn
+  pod_identity_association {
+    role_arn = aws_iam_role.ebs.arn
+    service_account = "ebs-csi-controller-sa"
+  }
 }
-
+# resource "aws_eks_addon" "eks-pod-identify-agent" {
+#   cluster_name             = aws_eks_cluster.main.name
+#   addon_name               = "eks-pod-identify-agent"
+# }
 
 ## EKS Output
 output "EKS_endpoint" {
