@@ -18,6 +18,12 @@ resource "aws_iam_role" "cluster" {
   })
 }
 
+## AmazonEKSClusterPolicy
+## AmazonEKSBlockStoragePolicy
+## AmazonEKSComputePolicy
+## AmazonEKSLoadBalancingPolicy
+## AmazonEKSNetworkingPolicy
+
 resource "aws_iam_role_policy_attachment" "cluster_AmazonEKSClusterPolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
   role       = aws_iam_role.cluster.name
@@ -43,6 +49,9 @@ resource "aws_iam_role" "node" {
     ]
   })
 }
+
+## AmazonEKSWorkerNodeMinimalPolicy
+## AmazonEC2ContainerRegistryPullOnly
 
 resource "aws_iam_role_policy_attachment" "node_AmazonEKSWorkerNodePolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
