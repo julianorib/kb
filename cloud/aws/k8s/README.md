@@ -12,6 +12,9 @@ O Amazon EKS permite executar suas aplicações do Kubernetes no Amazon Elastic 
 <https://aws.amazon.com/pt/eks/pricing/>\
 <https://docs.aws.amazon.com/pt_br/eks/latest/userguide/create-kubeconfig.html>
 
+### ENI - Elastic Network Interfaces
+<https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI>
+
 ## Valores
 <https://aws.amazon.com/pt/eks/pricing/>
 

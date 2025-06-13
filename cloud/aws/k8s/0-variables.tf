@@ -19,7 +19,7 @@ variable "eks_public_access" {
 variable "eks_instance_types" {
   type        = list(any)
   description = "EKS Node Instance"
-  default     = ["t3.micro"]
+  default     = ["t3.medium"]
 }
 variable "eks_ondemand_desired" {
   type        = number
