@@ -178,14 +178,10 @@ resource "aws_eks_addon" "ebs-csi-driver" {
   cluster_name             = aws_eks_cluster.main.name
   addon_name               = "aws-ebs-csi-driver"
   pod_identity_association {
-    role_arn = aws_iam_role.ebs.arn
+    role_arn = aws_iam_role.storage.arn
     service_account = "ebs-csi-controller-sa"
   }
 }
-# resource "aws_eks_addon" "eks-pod-identify-agent" {
-#   cluster_name             = aws_eks_cluster.main.name
-#   addon_name               = "eks-pod-identify-agent"
-# }
 
 ## EKS Output
 output "EKS_endpoint" {

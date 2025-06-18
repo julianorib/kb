@@ -76,8 +76,8 @@ resource "aws_iam_role_policy_attachment" "node_AmazonEKS_CNI_Policy" {
 
 
 ## IAM Role para EKS EBS
-resource "aws_iam_role" "ebs" {
-  name = format("%s-eks-ebs", var.project_name)
+resource "aws_iam_role" "storage" {
+  name = format("%s-eks-storage", var.project_name)
   assume_role_policy = jsonencode({
  "Version": "2012-10-17",
      Statement = [
@@ -94,5 +94,5 @@ resource "aws_iam_role" "ebs" {
 
 resource "aws_iam_role_policy_attachment" "node_AmazonEBSCSIDriverPolicy" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
-  role       = aws_iam_role.ebs.name
+  role       = aws_iam_role.storage.name
 }
