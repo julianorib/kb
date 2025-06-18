@@ -9,6 +9,7 @@
 - [Certificados do Cluster](certs.md)
 - [Cotas por Namespace](cotas.md)
 - [Novo Node](newnode.md)
+- [Gateway API](gwapi.md)
 - [Outros Usuarios](users.md)
 - [Registry Privado](Registry.md)
 - [Upgrade versão](upgrade.md)
