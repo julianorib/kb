@@ -29,6 +29,17 @@ helm completion zsh > "${fpath[1]}/_helm"
 | helm repo list | Listas os Repositórios |
 | helm repo remove stable | Remover um Repositorio |
 
+### Search
+
+Pesquisar uma aplicação no hub (artifacthub):
+```
+helm search hub aplicação
+```
+
+Pesquisar uma aplicação em um repositório:
+```
+helm search repo aplicação
+```
 
 ### Aplicações
 
