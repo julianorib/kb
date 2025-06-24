@@ -55,6 +55,13 @@ helm uninstall chart
 helm uninstall chart -n namespace
 ```
 
+### Rollback
+
+Visualizar o histórico de um aplicativo:
+```
+helm history chartrelease
+helm rollback chartrelease 1
+```
 
 ### Pacote (Chart)
 
