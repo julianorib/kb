@@ -1,5 +1,7 @@
 # SRE - Site Reliability Engineering
 
+<https://sre.google/>
+
 <https://www.redhat.com/pt-br/topics/devops/what-is-sre>
 
 <https://www.youtube.com/watch?v=DNuSRFIAgxQ>
