@@ -50,7 +50,7 @@ helm show values repo/chart
 
 Instalar uma aplicação:
 ```
-helm update --install chartnovo repo/chart
+helm upgrade --install chartnovo repo/chart
 ```
 
 | Options | Descrição |
