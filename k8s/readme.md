@@ -14,3 +14,4 @@
 - [Registry Privado](Registry.md)
 - [Upgrade versão](upgrade.md)
 - [Problemas e Erros](troubleshooting.md)
+- [Kustomize](kustomize.md)
