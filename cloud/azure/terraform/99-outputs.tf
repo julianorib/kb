@@ -1,11 +1,16 @@
-output "public_ip" {
-  value = azurerm_public_ip.public_ip.ip_address
+output "IP_do_LoadBalancer" {
+  value = azurerm_public_ip.lb_ip.ip_address
 }
 
-output "postgres_host" {
-  value = azurerm_postgresql_flexible_server.pg.fqdn
+output "DB_Endpoint" {
+  value = azurerm_mysql_flexible_server.mysql.fqdn
 }
 
-output "storage_account" {
-  value = azurerm_storage_account.storage.name
+output "DB_user" {
+  value = azurerm_mysql_flexible_server.mysql.administrator_login
+}
+
+output "DB_password" {
+  value = azurerm_mysql_flexible_server.mysql.administrator_password
+  sensitive = true
 }
