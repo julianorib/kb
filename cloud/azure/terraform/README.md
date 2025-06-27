@@ -27,3 +27,14 @@ tofu init
 tofu validate
 tofu apply
 ```
+
+
+### Comandos
+Visualizar Imagens disponíveis para VMs.
+```
+az vm image list --output table
+```
+Listar SKUs disponíveis para MySQL Flexible.
+```
+az mysql flexible-server list-skus --out table --location eastus2
+```
