@@ -117,7 +117,7 @@ spec:
 ```
 
 
-### Outra forma de Patch
+### Outra forma de Patch (Json 6902 Patch)
 `kustomization.yaml`
 ```
 patches:
