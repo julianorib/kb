@@ -115,3 +115,31 @@ metadata:
 spec:
   replicas: 6
 ```
+
+
+### Outra forma de Patch
+`kustomization.yaml`
+```
+patches:
+  - target:
+      kind: Deployment
+      name: nginx
+
+    patch: |-
+      - op: replace
+        path: /metadata/name
+        value: webapp
+```
+
+`kustomization.yaml`
+```
+patches:
+  - target:
+      kind: Deployment
+      name: nginx
+
+    patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 5
+```
