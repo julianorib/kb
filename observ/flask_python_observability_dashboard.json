@@ -1,0 +1,88 @@
+{
+  "uid": "python-flask-observability",
+  "title": "Python Flask Observability",
+  "timezone": "browser",
+  "schemaVersion": 36,
+  "version": 1,
+  "refresh": "10s",
+  "panels": [
+    {
+      "type": "stat",
+      "title": "Resident Memory (MB)",
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "process_resident_memory_bytes / 1024 / 1024",
+          "legendFormat": "Resident Memory",
+          "interval": ""
+        }
+      ],
+      "gridPos": { "x": 0, "y": 0, "w": 6, "h": 4 }
+    },
+    {
+      "type": "stat",
+      "title": "CPU Time (s)",
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "process_cpu_seconds_total",
+          "legendFormat": "CPU Time",
+          "interval": ""
+        }
+      ],
+      "gridPos": { "x": 6, "y": 0, "w": 6, "h": 4 }
+    },
+    {
+      "type": "timeseries",
+      "title": "GC Collections by Generation",
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "python_gc_collections_total",
+          "legendFormat": "Gen {{generation}}",
+          "interval": ""
+        }
+      ],
+      "gridPos": { "x": 0, "y": 4, "w": 12, "h": 6 }
+    },
+    {
+      "type": "timeseries",
+      "title": "GC Collected Objects",
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "python_gc_objects_collected_total",
+          "legendFormat": "Gen {{generation}}",
+          "interval": ""
+        }
+      ],
+      "gridPos": { "x": 0, "y": 10, "w": 12, "h": 6 }
+    },
+    {
+      "type": "timeseries",
+      "title": "HTTP Request Duration (Histogram)",
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "rate(flask_http_request_duration_seconds_sum[1m]) / rate(flask_http_request_duration_seconds_count[1m])",
+          "legendFormat": "avg duration ({{method}} {{path}})",
+          "interval": ""
+        }
+      ],
+      "gridPos": { "x": 0, "y": 16, "w": 12, "h": 6 }
+    },
+    {
+      "type": "timeseries",
+      "title": "HTTP Requests Total",
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "rate(flask_http_request_total[1m])",
+          "legendFormat": "{{method}} {{status}}",
+          "interval": ""
+        }
+      ],
+      "gridPos": { "x": 0, "y": 22, "w": 12, "h": 6 }
+    }
+  ]
+}
