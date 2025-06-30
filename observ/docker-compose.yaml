@@ -28,7 +28,7 @@ services:
       - "9411:9411" # Zipkin compatible
 
   mysite:
-    image: julianorib/mysite:v3.0
+    image: julianorib/mysite:v4.2
     container_name: mysite
     ports:
       - "8080:8080"
