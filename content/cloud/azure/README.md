@@ -17,7 +17,7 @@ Utilize o modelo "Enterprise-Scale Landing Zone" em versão lite.
 
 | Componente | Função |
 |---|---|
-| Subscription separada | Separar Dev/ Prod |
+| Subscription separada | Separar Dev/ Prod/ Identidade / Gerenciamento / Conectividade |
 | Resource Groups organizados | Agrupar Recursos por função |
 | VNET e Subnets | Subnets por Ambientes |
 | Azure Bastion ou Jumpbox | Acesso seguro |
