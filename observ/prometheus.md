@@ -49,7 +49,7 @@ rate(http_requests_total[5m])
 
 É necessário configurar os `targets` dos servidores, ou aplicações no Prometheus.\
 Estes `targets`estão na sessão `scrape_configs`.\
-Deve haver um `scrape_config` para cada aplicação / endpoint que for monitorado.
+Deve haver um `job_name` para cada aplicação / endpoint que for monitorado.
 
 `prometheus.yml`
 ```
