@@ -35,6 +35,10 @@ Um tracing é formado por:
 
 Aplicar tracing automaticamente em Flask com OpenTelemetry.
 
+<https://github.com/julianorib/mysite>\
+Este projeto é um exemplo de aplicação que expoe traces.\
+Estas podem ser visualizadas no Jaeger que sobe junto.
+
 ### Instalar o OpenTelemetry
 
 ```

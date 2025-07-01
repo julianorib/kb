@@ -32,6 +32,10 @@ Com base em regras definidas, ele pode gerar alertas e enviá-los para ferrament
 
 ## Exemplo prático
 
+<https://github.com/julianorib/mysite>\
+Este projeto é um exemplo de aplicação que expoe métricas.\
+Estas podem ser visualizadas no Grafana e Prometheus que sobem junto.
+
 Um servidor ou aplicação expõe métricas como:
 ```
 http_requests_total{method="GET", handler="/"}  5120
