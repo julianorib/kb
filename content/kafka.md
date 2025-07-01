@@ -28,4 +28,4 @@ Lê as mensagens dos tópicos, podendo ser um ou mais consumidores, que podem se
 ### Zookeeper
 Sistema usado para coordenar e gerenciar o cluster Kafka (controle de estado dos brokers, líderes, etc.).
 
-![kafka](kafka.md)
+![kafka](kafka.png)
