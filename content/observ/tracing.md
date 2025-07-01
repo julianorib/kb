@@ -33,6 +33,9 @@ Um tracing é formado por:
 
 ## Como aplicar
 
+Utilize o OpenTelemetry:
+<https://opentelemetry.io/docs/getting-started/>
+
 Aplicar tracing automaticamente em Flask com OpenTelemetry.
 
 <https://github.com/julianorib/mysite>\
