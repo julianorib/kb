@@ -11,6 +11,8 @@ Este projeto cria uma infraestrutura no Azure contendo:
 - Storage Account com Share
 - Banco de dados MySQL
 
+![azure](azure_drawio.png)
+
 
 ## Começar
 
