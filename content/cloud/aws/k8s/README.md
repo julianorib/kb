@@ -85,7 +85,7 @@ eksctl delete cluster --name mycluster --region us-east-2
 
 ### Cluster EKS com Nodes Ondemand e Spot
 
-[terraform](terraform/)
+[terraform](tf_example)
 
 É criado um Cluster EKS com 2 grupos de autoscaling, sendo 1 ondemand e 1 spot.\
 Este cluster tem acesso somente privado, e para acessá-lo, será necessário acessar uma outra Instância pública, que também é criado neste projeto.
