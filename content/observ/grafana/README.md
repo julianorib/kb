@@ -14,7 +14,7 @@
 |---|---|
 | Query type | Host |
 | Group | Firewall |
-| Host | /4351_PA.*/ |
+| Host | /1234_00.*/ |
 | Regex | /.*/ |
 
 ### Tabelas
