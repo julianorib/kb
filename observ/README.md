@@ -261,6 +261,7 @@ Com APM, você pode ver:
 - Grafana Loki
 
 ### Coletores de Logs
+- Logstash
 - Fluent-bit
 - Promtail
 
