@@ -109,3 +109,17 @@ metadata:
 spec:
 ```
 
+
+## Network Ports
+
+<https://kubernetes.io/docs/reference/networking/ports-and-protocols/>
+
+| Port | Service |
+|---|---|
+| kube-api | 6443 |
+| etcd | 2379:2380 |
+| kube-controler | 10257 |
+| kube-scheduler | 10259 |
+| kubelet | 10250 |
+| kubeproxy | 10256 |
+| services | 30000:32767 |

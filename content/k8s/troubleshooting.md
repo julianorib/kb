@@ -54,6 +54,14 @@ O container ficou sem memória.
 | Ingress Controller          | kubectl get ingress       | kubectl describe ingress      | kubectl logs ingress        |
 | Ingress Router              | kubectl get ingressroute  | kubectl describe ingressroute | kubectl logs ingressroute   |
 
+## Fluxo análise Network 
+
+| CNI - Ver se tem instalado | kubectl get pods -A |
+| kube-proxy          | kubectl logs -f pod/kube-proxy-xpto -n kube-system |
+| kube-proxy          | kubectl describe daemonset kube-proxy -n kube-system |
+| kube-proxy          | kubectl describe configmap kube-proxy -n kube-system |
+
+
 Executando um container de testes:
 ```
 kubectl run dodgyn --image=busybox --restart=Never --rm -it -- sh -c 'wget -qO- IP OU DNS:PORTA'
@@ -73,13 +81,19 @@ kubectl port-forward pod-name 8080:<port-container>
 | Componentes         | kubectl get pods -n kube-system   |
 | Componentes         | kubectl describe pods -n kube-system |
 | Componentes Logs    | kubectl logs -f component -n kube-system |
-| configmaps          | kubectl get configmap -n kube-system |
-| configmaps          | kubectl describe configmap component -n kube-system |
-| configmaps          | atenção ao nome do arquivo de configuração, caso tenha |
+| Componentes         | Manifestos - volumes - certs |
 | Nodes               | kubectl get nodes               |
 | Nodes               | kubectl describe node           | 
 | Kubelet             | systemctl status kubelet          |
 | Kubelet Logs        | journalctl -xu kubelet            |
+| Kubelet Config      | /etc/kubernetes/kubelet.conf      |
+|                     | /var/lib/kubelet/config.yaml      |
+
+
+## Network CNI
+
+/opt/cni/bin/
+/etc/cni/net.d/plugin.conflist
 
 
 ## Consultar recursos por Namespace
