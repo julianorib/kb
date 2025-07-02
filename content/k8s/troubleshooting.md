@@ -45,7 +45,10 @@ O container ficou sem memória.
 | Verificar status do POD     | kubectl get pods          | kubectl describe pod          | kubectl logs pod            |
 | Verificar status do Deploy  | kubectl get deploy        | kubectl describe deploy       | kubectl logs deploy         |
 | Verificar status do Service | kubectl get service       | kubectl describe service      | kubectl logs service        |
+| Verificar Selectors         | se os selectors entre pods, deploy, services são os mesmos                              |
+| Verificar Ports             | se o Port e TargetPort estão corretos no deploy e services                              |
 | Verificar Endpoints         | kubectl get endpoints     | kubectl describe endpoint     | kubectl logs endpoints      |
+| Verificar NetworkPolicy     | kubectl get networkpolicy | kubectl describe networkpolicy |                            |
 | Se tiver volumes            | kubectl get pv            | kubectl describe pv           | kubectl logs pv             |
 | Se tiver volumes            | kubectl get pvc           | kubectl describe pvc          | kubectl logs pvc            |
 | Ingress Controller          | kubectl get ingress       | kubectl describe ingress      | kubectl logs ingress        |
@@ -64,12 +67,19 @@ kubectl port-forward pod-name 8080:<port-container>
 
 ## Fluxo de análise NODE
 
-| Descrição | Verificar | Verificar |
-|-----------|-----------|-----------|
-| Componentes         | kubectl get componentstatuses     | kubectl get pods -n kube-system |
-| Status Nodes        | kubectl get nodes                 | kubectl describe node           |
-| Kubelet OK      ?   | systemctl status kubelet          |                                 |
-| Kubelet com erro?   | journalctl -u kubelet -n 100      |                                 |
+| Descrição | Verificar |
+|-----------|-----------|
+| Componentes         | kubectl get componentstatuses     | 
+| Componentes         | kubectl get pods -n kube-system   |
+| Componentes         | kubectl describe pods -n kube-system |
+| Componentes Logs    | kubectl logs -f component -n kube-system |
+| configmaps          | kubectl get configmap -n kube-system |
+| configmaps          | kubectl describe configmap component -n kube-system |
+| configmaps          | atenção ao nome do arquivo de configuração, caso tenha |
+| Nodes               | kubectl get nodes               |
+| Nodes               | kubectl describe node           | 
+| Kubelet             | systemctl status kubelet          |
+| Kubelet Logs        | journalctl -xu kubelet            |
 
 
 ## Consultar recursos por Namespace

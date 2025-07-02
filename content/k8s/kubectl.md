@@ -26,6 +26,10 @@ $ENV:KUBECONFIG=("C:\Users\yourUser\.kube\config-other")
 export KUBECONFIG="${KUBECONFIG}:./config"
 ```
 
+### Ver contextos
+```
+kubectl config get-contexts
+```
 ### Setar um Namespace padrão para um Contexto:
 ```
 kubectl config set-context --current --namespace=xpto

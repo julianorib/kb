@@ -1,6 +1,6 @@
 # Kubeadm certs
 
-https://kubernetes.io/pt-br/docs/reference/setup-tools/kubeadm/kubeadm-certs/
+<https://kubernetes.io/pt-br/docs/reference/setup-tools/kubeadm/kubeadm-certs/>
 
 O kubeadm certs fornece os utilitários para gerenciar os certificados.
 
@@ -8,6 +8,11 @@ Este comando verifica a expiração dos certificados na PKI local gerenciada pel
 ```
 kubeadm certs check-expiration
 ```
+
+## Certificados Cluster
+
+<https://kubernetes.io/docs/setup/best-practices/certificates/>
+
 
 # Secret TLS
 
