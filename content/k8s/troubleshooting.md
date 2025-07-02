@@ -56,6 +56,8 @@ O container ficou sem memória.
 
 ## Fluxo análise Network 
 
+| componente | verificar |
+|----|----|
 | CNI - Ver se tem instalado | kubectl get pods -A |
 | kube-proxy          | kubectl logs -f pod/kube-proxy-xpto -n kube-system |
 | kube-proxy          | kubectl describe daemonset kube-proxy -n kube-system |
