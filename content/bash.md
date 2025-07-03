@@ -34,9 +34,9 @@ done
 read -p "informe um numero" num
 
 if [[ $num < 10 ]]; then
-        echo $num is maior que 10
-else
         echo $num é menor que 10
+else
+        echo $num é maior que 10
 fi
 ```
 
