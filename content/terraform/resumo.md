@@ -382,13 +382,16 @@ output "saida1" {
 Cadastro no Terraform Registry com Github
 O repositório é apontado para o Github.
 Deve ter uma nomenclatura de nomes: 
+```
 **terraform-<PROVIDER>-name**
 **terraform-aws-vpcexample**
-
+```
 Precisa ter uma Release tag:
+```
 **v1.0.0**
 **git tag v1.0.0**
 **git push --tags**
+```
 
 Para utilizar no Projeto, a declaração fica assim:
 ```
