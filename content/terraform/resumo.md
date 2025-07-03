@@ -221,8 +221,9 @@ name = "${random_pet.example.id}-teste"
 
 - Preenchendo o arquivo variables.tfvars:
 
+```
 variavel = valor
-
+```
 - Criando variáveis de ambiente:
 
 ```
