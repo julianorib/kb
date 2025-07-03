@@ -1,5 +1,21 @@
 # Dev
 
+
+## Arquitetura
+
+### Monolito
+
+É um modelo tradicional onde todo o sistema é construído como uma única aplicação unificada. Todos os componentes (ex: autenticação, pagamentos, UI) estão juntos e rodam no mesmo processo.
+
+### Microserviços
+
+O sistema é dividido em vários serviços pequenos, independentes e especializados, que se comunicam (geralmente via HTTP ou mensageria). Cada serviço implementa uma funcionalidade específica.
+
+
+## [System design](sd/README.md)
+
+
+
 ## Stacks Populares e Suas Tecnologias
 
 | Stack	| Linguagem (Front / Back)	| Framework	| Servidor Web	| Aplicações Utilizadas | 
@@ -18,3 +34,5 @@
 | Java EE / JBoss	| HTML+JS / Java	| Jakarta EE, JSF, EJB	| JBoss (WildFly) ou JBoss EAP	| Aplicações empresariais, bancos, governo | 
 | Quarkus Stack	| HTML+JS / Java	| Quarkus	| Embutido (Vert.x ou Undertow)	| Microserviços, aplicações cloud-native (Red Hat/OpenShift) | 
 | Micronaut Stack	| HTML+JS / Java or Kotlin	| Micronaut	Embedded | Netty / Nginx	| APIs reativas, serverless, microserviços leves | 
+|  | C, C++, Assembly, Rust | | | Sistema Operacioanal |
+|  | C++, C#, Lua, JavaScript, Python | | | Jogos |
