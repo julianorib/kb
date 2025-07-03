@@ -1,0 +1,37 @@
+stages:
+  - install
+  - lint
+  - test
+  - security
+  - build
+  - package
+
+install:
+  stage: install
+  script:
+    - npm install
+
+lint:
+  stage: lint
+  script:
+    - npx eslint .
+
+test:
+  stage: test
+  script:
+    - npm test
+
+security:
+  stage: security
+  script:
+    - npm audit
+
+build:
+  stage: build
+  script:
+    - npm run build
+
+package:
+  stage: package
+  script:
+    - echo "Empacotar app ou criar imagem docker"

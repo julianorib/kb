@@ -1,0 +1,32 @@
+stages:
+  - build
+  - test
+  - lint
+  - security
+  - package
+
+build:
+  stage: build
+  script:
+    - ./mvnw clean compile
+
+test:
+  stage: test
+  script:
+    - ./mvnw test
+
+lint:
+  stage: lint
+  script:
+    - ./mvnw checkstyle:check
+
+security:
+  stage: security
+  script:
+    - ./mvnw org.owasp:dependency-check-maven:check
+
+package:
+  stage: package
+  script:
+    - ./mvnw package
+    - echo "Gerar Docker se necessário"

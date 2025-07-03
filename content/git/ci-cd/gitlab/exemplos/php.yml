@@ -1,0 +1,31 @@
+stages:
+  - install
+  - lint
+  - test
+  - security
+  - package
+
+install:
+  stage: install
+  script:
+    - composer install
+
+lint:
+  stage: lint
+  script:
+    - ./vendor/bin/phpstan analyse src/
+
+test:
+  stage: test
+  script:
+    - ./vendor/bin/phpunit
+
+security:
+  stage: security
+  script:
+    - composer audit
+
+package:
+  stage: package
+  script:
+    - echo "Gerar zip ou docker"

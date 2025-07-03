@@ -1,0 +1,27 @@
+stages:
+  - build
+  - test
+  - package
+  - deploy
+
+build:
+  stage: build
+  script:
+    - ./mvnw clean compile
+
+test:
+  stage: test
+  script:
+    - ./mvnw test
+
+package:
+  stage: package
+  script:
+    - ./mvnw package
+    - echo "WAR gerado"
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Executar deploy usando CLI do Wildfly ou outro"
+    # Exemplo: ./jboss-cli.sh --connect command="deploy target/app.war --force"

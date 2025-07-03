@@ -1,0 +1,25 @@
+stages:
+  - install
+  - lint
+  - test
+  - build
+
+install:
+  stage: install
+  script:
+    - npm install
+
+lint:
+  stage: lint
+  script:
+    - npx eslint .
+
+test:
+  stage: test
+  script:
+    - npm test
+
+build:
+  stage: build
+  script:
+    - npm run build

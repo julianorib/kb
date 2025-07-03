@@ -1,0 +1,37 @@
+stages:
+  - install
+  - lint
+  - test
+  - security
+  - package
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+install:
+  stage: install
+  script:
+    - pip install -r requirements.txt
+
+lint:
+  stage: lint
+  script:
+    - pip install flake8
+    - flake8 .
+
+test:
+  stage: test
+  script:
+    - pip install pytest
+    - pytest
+
+security:
+  stage: security
+  script:
+    - pip install bandit
+    - bandit -r .
+
+package:
+  stage: package
+  script:
+    - echo "Empacotar ou gerar imagem docker se necessário"
