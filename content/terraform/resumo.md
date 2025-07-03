@@ -135,13 +135,14 @@ locals {
   owner = "juliano"
 }
 ```
+```
 locals {
   common_tags = {
     service = local.name
     owner = local.owner
   }
 }
-
+```
 ```
 locals {
   instancias = concat(aws_instance.blue.*.id, aws_instance.green.*.id)
