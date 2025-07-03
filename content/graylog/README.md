@@ -5,6 +5,8 @@ Armazene e centralize logs de Servidores, Firewalls, Containers, etc.
 ## Documentação 
 <https://go2docs.graylog.org/current/home.htm>
 
+![graylog](img/graylog.png)
+
 ## Fluxo
 
 | Inputs | Streams | Pipelines | Indices |
