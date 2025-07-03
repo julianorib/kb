@@ -111,6 +111,17 @@ Com a interpolação é possível manipular valores de variáveis, strings, fun�
 Neste exemplo, o resultado pode ser:
 "Olá, Juan!".
 
+## Format
+
+project_name = "xpto"
+```
+format("%s-EC2", var.project_name)
+```
+
+Resultado:
+```
+xpto-EC2
+```
 
 ## Locals
 
