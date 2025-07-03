@@ -73,7 +73,7 @@ scrape_configs:
 
 ## PromQL
 
-<https://prometheus.io/docs/prometheus/latest/querying/basics/>
+<https://prometheus.io/docs/prometheus/latest/querying/basics/>\
 <https://prometheus.io/docs/prometheus/latest/querying/functions/>
 
 Exemplos Documentação:
