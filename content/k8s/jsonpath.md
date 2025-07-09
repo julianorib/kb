@@ -70,6 +70,11 @@ kubectl get nodes -o=custom-columns=NODE:.metadata.name,CPU:.status.capacity.cpu
 
 `-o=custom-columns=NODE:.metadata.name,CPU:.status.capacity.cpu`
 
+Mais complexo:
+```
+kubectl get deploy -n admin2406 -o custom-columns=DEPLOYMENT:.metadata.name,CONTAINER_IMAGE:.spec.template.spec.containers[*].image,REA
+DY_REPLICAS:.status.readyReplicas,NAMESPACE:.metadata.namespace
+```
 
 ### Sort
 
