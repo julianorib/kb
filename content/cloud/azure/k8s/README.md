@@ -4,6 +4,12 @@
 
 <https://azure.microsoft.com/pt-br/products/kubernetes-service>\
 <https://learn.microsoft.com/pt-br/azure/aks/what-is-aks>
+<https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks/baseline-aks>
+
+
+## Network Topology
+
+![Network-Topology](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks/images/aks-baseline-architecture.svg)
 
 ## Pricing
 
