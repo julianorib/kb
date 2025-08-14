@@ -22,5 +22,9 @@
 - Criar as variáveis
 - Criar quantas querys forem necessárias.
 - Criar transformações
-    - 1 - Merge series/tables
-    - 2 - Organize fields by name
+    - 1 - Labels to fields (não em todos casos)
+    - 2 - Merge series/tables
+    - 3 - Organize fields by name
+    - 4 - Group by
+          - Host/Name Group by
+          - Itens: calculate last* 
