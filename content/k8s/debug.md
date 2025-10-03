@@ -8,6 +8,6 @@ Isso é útil porque o container original pode não ter ferramentas como sh, ps,
 
 ## Comando
 ```
-k debug -it <podname> --target=<containername>  --image=ubuntu --share-processes --profile=sysadmin
+kubectl debug -it <podname> --target=<containername>  --image=ubuntu --share-processes --profile=sysadmin
 ```
 
