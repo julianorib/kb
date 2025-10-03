@@ -15,3 +15,4 @@
 - [Upgrade versão](upgrade.md)
 - [Problemas e Erros](troubleshooting.md)
 - [Kustomize](kustomize.md)
+- [Debug](debug.md)
