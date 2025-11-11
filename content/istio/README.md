@@ -198,6 +198,128 @@ Permite manipulação detalhada do tráfego:
 - **Request mirroring**: Clona requisições para teste de novas versões.  
 - **Timeouts e retries**: Regras de resiliência.  
 - **Circuit breakers**: Evita sobrecarga em serviços degradados.  
+- **Outlier Detection**: Remoção de instâncias problemáticas.
+
+Exemplo – DestinationRule com Resiliência e Tolerância a Falhas:
+```
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: reviews-destination
+  namespace: default
+spec:
+  host: reviews.default.svc.cluster.local
+  trafficPolicy:
+    # --- Balanceamento de carga ---
+    loadBalancer:
+      simple: ROUND_ROBIN
+      # Alternativamente:
+      # consistentHash:
+      #   httpHeaderName: "x-user-id"
+
+    # --- Pool de conexões ---
+    connectionPool:
+      tcp:
+        maxConnections: 100                # Máximo de conexões TCP simultâneas
+        connectTimeout: 3s                 # Tempo limite para estabelecer conexões
+      http:
+        http1MaxPendingRequests: 50        # Requisições aguardando conexão
+        maxRequestsPerConnection: 10       # Evita conexões muito longas (keep-alive)
+        idleTimeout: 30s
+
+    # --- Circuit Breaker ---
+    outlierDetection:
+      consecutive5xxErrors: 5              # Após 5 erros 5xx consecutivos
+      interval: 5s                         # Verifica a cada 5 segundos
+      baseEjectionTime: 15s                # Tempo de isolamento da instância com falha
+      maxEjectionPercent: 50               # No máximo 50% das instâncias podem ser removidas
+
+    # --- Timeout e Retentativas (comportamento de cliente) ---
+    # Observação: esses campos normalmente são definidos no VirtualService.
+    # Aqui apenas ilustramos a configuração no destino.
+    portLevelSettings:
+    - port:
+        number: 80
+      connectionPool:
+        http:
+          maxRequestsPerConnection: 5
+      outlierDetection:
+        consecutive5xxErrors: 3
+        interval: 10s
+        baseEjectionTime: 30s
+
+  subsets:
+  - name: v1
+    labels:
+      version: v1
+  - name: v2
+    labels:
+      version: v2
+```
+### Explicação dos principais blocos
+### 1. loadBalancer
+
+Define o algoritmo de distribuição de requisições entre as instâncias.
+- ROUND_ROBIN: padrão, alterna entre instâncias.
+- LEAST_CONN: envia para a instância com menos conexões.
+- RANDOM: escolha aleatória.
+- CONSISTENT_HASH: mantém afinidade com base em cabeçalho (útil para sessões).
+
+### 2. connectionPool
+
+Controla como o Envoy gerencia conexões com o destino:
+- Limita número máximo de conexões TCP.
+- Define quantas requisições HTTP simultâneas cada conexão pode suportar.
+- Define tempo ocioso antes de fechar conexões.
+
+### 3. outlierDetection (Circuit Breaker)
+
+Monitora endpoints do serviço e ejeita (remove) instâncias com falhas repetidas:
+- consecutive5xxErrors: número de erros 5xx consecutivos para marcar instância como ruim.
+- interval: frequência da checagem.
+- baseEjectionTime: tempo mínimo em que a instância fica fora do pool.
+- maxEjectionPercent: proteção para não remover todas as instâncias ao mesmo tempo.
+
+Esse mecanismo evita que requisições continuem sendo enviadas a pods com falha.
+
+### 4. subsets
+
+Permite definir políticas diferentes por versão (v1, v2, etc.), usadas em conjunto com VirtualService para:
+
+- Fazer canary deployments (dividir tráfego).
+- Aplicar políticas diferentes (timeouts, balanceamento, etc.) por versão.
+
+### 5. portLevelSettings
+
+Permite granularidade por porta.
+Você pode definir diferentes timeouts, pools, e circuit breakers por porta específica.
+
+Exemplo de uso combinado com VirtualService
+```
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: reviews-route
+spec:
+  hosts:
+  - reviews
+  http:
+  - route:
+    - destination:
+        host: reviews
+        subset: v1
+      weight: 80
+    - destination:
+        host: reviews
+        subset: v2
+      weight: 20
+    timeout: 3s
+    retries:
+      attempts: 2
+      perTryTimeout: 2s
+      retryOn: 5xx,connect-failure,refused-stream
+```
+Aqui, o VirtualService define retentativas (retries) e timeout no tráfego, enquanto o DestinationRule define circuit breaking e pool de conexões no lado do cliente.
 
 ### Injeção de falhas e atrasos
 Simula cenários de falha:
