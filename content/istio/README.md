@@ -1,5 +1,9 @@
 # Istio - Resumo Técnico
 
+##Ref:
+<https://istio.io/latest/docs/overview/>\
+<https://istio.io/latest/docs/setup/getting-started/>
+
 ## Introdução ao Istio
 Istio é uma **Service Mesh** que fornece uma camada de controle de comunicação entre serviços em um cluster Kubernetes (ou ambiente híbrido). Ele abstrai a lógica de rede do código da aplicação, permitindo **observabilidade, segurança e controle de tráfego** sem modificar o código do serviço.
 
