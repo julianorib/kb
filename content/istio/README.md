@@ -569,4 +569,7 @@ istioctl proxy-config clusters <pod_name>.<namespace>
 istioctl proxy-config listeners <pod_name>.<namespace>
 ```
 
+# Ver mais:
 
+- Kiali
+- K6
