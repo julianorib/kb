@@ -500,6 +500,8 @@ Istio pode controlar tráfego para fora do cluster:
 O recurso ServiceEntry permite registrar serviços externos (fora do mesh ou fora do cluster Kubernetes) dentro do contexto do Istio, como se fossem serviços internos.
 Isso é necessário porque o Istio só conhece os serviços registrados no Kubernetes (Service), e qualquer comunicação para fora precisa ser explicitamente declarada.
 
+Além disto, é possível fazer Failover de serviços para outro Cluster, outra Região, etc.
+
 ### Principais usos:
 
 - Permitir que workloads do mesh acessem APIs externas (Google, GitHub, bancos, SaaS).
@@ -523,6 +525,35 @@ spec:
     protocol: HTTPS
   resolution: DNS
   location: MESH_EXTERNAL
+```
+Exemplo: Failover outra região dynamodb
+```
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: dynamodb-global
+  namespace: default
+spec:
+  hosts:
+  - dynamodb.amazonaws.com
+  location: MESH_EXTERNAL                 # Serviço fora do cluster
+  resolution: STATIC                      # Endpoints definidos manualmente
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+
+  endpoints:
+  - address: dynamodb.us-east-1.amazonaws.com
+    ports:
+      https: 443
+    labels:
+      region: us-east-1
+  - address: dynamodb.us-west-2.amazonaws.com
+    ports:
+      https: 443
+    labels:
+      region: us-west-2
 ```
 
 # Comandos / Diagnostico
