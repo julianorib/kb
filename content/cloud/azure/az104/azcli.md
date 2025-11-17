@@ -11,6 +11,37 @@
 az login
 ```
 
+## Locations
+```
+az account list-locations --output table
+```
+
+## Subscriptions
+```
+az account list --output table
+az account set --subscription id
+``` 
+
+## Service Principal
+```
+az ad sp --name "usuario" -role Contributor --scope /subscriptions/id
+```
+```
+az ad sp list --display-name "usuario" -output table
+az ad sp delete -id appId
+```
+
+## Terraform with Service Principal
+```
+provider "azurerm" {
+    features {}
+    client_id       = "appId"
+    client_secret   = "password"
+    tenant_id       = "tenant"
+    subscription_id = "subscription"
+}
+```
+
 ## VMs
 ```
 rg=NomeGrupoRecursos
