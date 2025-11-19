@@ -9,6 +9,23 @@ Listar somente pastas ocultas
 ```
 ls -dl .*/ 
 ```
+
+### Espaço Usado
+Info de partições
+```
+df -h
+```
+Folder e Files:
+```
+du -ah | sort -hr | head -n 10
+```
+Somente Files:
+```
+du -ahS | sort -hr | head -n 20
+```
+ncdu (não disponível para todas distros)\
+<https://dev.yorhel.nl/ncdu>
+
 #### FIND: Pesquisar arquivos maiores de 1GB
 ```
 find /pasta/ -type f -size +1G 
