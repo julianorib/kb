@@ -2,7 +2,8 @@
 
 ## Ref:
 <https://istio.io/latest/docs/overview/>\
-<https://istio.io/latest/docs/setup/getting-started/>
+<https://istio.io/latest/docs/setup/getting-started/>\
+<https://www.youtube.com/watch?v=wJrwZFA-iZ8>
 
 ## Service Mesh
 
