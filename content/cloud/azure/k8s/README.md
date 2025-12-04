@@ -6,6 +6,8 @@
 <https://learn.microsoft.com/pt-br/azure/aks/what-is-aks>\
 <https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks/baseline-aks>
 
+## Tunninng
+<https://learn.microsoft.com/en-us/azure/aks/cluster-autoscaler?tabs=azure-cli#cluster-autoscaler-profile-settings>
 
 ## Network Topology
 
