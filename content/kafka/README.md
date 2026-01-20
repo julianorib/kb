@@ -77,3 +77,9 @@ services:
       - KAFKA_CLUSTERS_0_NAME=meiospg
       - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafkaserver:9094
 ```
+
+## Offset Explorer
+
+Esta é outra aplicação, que pode ser instalada no computador para gerenciar um Kafka.
+
+<https://offsetexplorer.com/download.html>
