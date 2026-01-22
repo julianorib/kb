@@ -221,7 +221,16 @@ Define **políticas do lado do cliente** (Envoy → destino).
 
 ## 10. Sidecar CRD (Escopo do Proxy)
 
-Controla **o que o proxy enxerga**.
+Controla **o que o proxy enxerga**, ou seja,\
+O Sidecar CRD define o escopo de configuração que o Envoy enxerga.
+
+- **Sem o Sidecar**, cada envoy conhece todos os serviços do mesh.
+ - Cada envoy mantém milhares de clusters/listeners
+ - Recebe pushs grandes
+- **Com o Sidecar**, o envoy conhece apenas o necessário.
+ - O envoy carrega serviços do próprio namespace
+ - Serviços explicitamente permitidos
+ - Push menor e mais rápido.
 
 ### Por que usar
 
