@@ -40,11 +40,7 @@ Adicionar **segurança, observabilidade e controle de tráfego** sem alterar o c
 * **Control Plane:** istiod
 * **Gateways:** entrada e saída do mesh
 
-```
-[ App ] <-> [ Envoy ] <-> [ Rede ]
-                 ↑
-              istiod
-```
+![istio](istio.png)
 
 ### Componentes
 
