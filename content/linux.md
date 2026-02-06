@@ -10,6 +10,10 @@ Listar somente pastas ocultas
 ls -dl .*/ 
 ```
 
+### Too many open files
+
+[filedescriptor](filedescriptor.md)
+
 ### Espaço Usado
 Info de partições
 ```
