@@ -64,7 +64,11 @@ kubectl get all -A
 
 ### Ver logs de um POD
 ```
-kubectl logs -f my-pod -n namesXpto
+kubectl -n namesXpto logs -f my-pod
+```
+### Ver Logs de vários PODs por Label
+```
+kubectl -n namesXpto logs -f --all-containers -l app=appXpto
 ```
 
 ### Interagir com um POD
@@ -88,6 +92,7 @@ kubectl port-forward pod-name 8080:<port-container>
 ### Executar um Pod com Shell interativo e depois remove-lo.
 ```
 kubectl run --image=busybox --restart=Never --rm -it -- sh
+kubectl run --image=alpine/curl --restart=Never --rm -it -- sh
 ```
 
 ### Erros mais comuns
