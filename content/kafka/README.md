@@ -7,6 +7,7 @@
 
 
 Um cluster de 3 nós, geralmente tem um Favor de Replicação de 2.\
+`offsets.topic.replication.factor=2`
 Se 2 de 3 nós estiverem off, não será gravado novas mensagens.
 
 Cada tópico tem uma quantidade X de partições.\
