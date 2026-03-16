@@ -115,3 +115,9 @@ kubectl run --image=alpine/curl --restart=Never --rm -it -- sh
 | Status Nodes        | kubectl get nodes                 | kubectl describe node           |
 | Kubelet OK      ?   | systemctl status kubelet          |                                 |
 | Kubelet com erro?   | journalctl -u kubelet -n 100      |                                 |
+
+
+### Annotation para Spot
+```
+kubectl annotate namespace XPTO scheduler.alpha.kubernetes.io/defaultTolerations='[{"Key": "kubernetes.azure.com/scalesetpriority","Operator":"Equal", "Value":"spot", "Effect": "NoSchedule"}]'
+```
