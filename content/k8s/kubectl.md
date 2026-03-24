@@ -121,3 +121,10 @@ kubectl run --image=alpine/curl --restart=Never --rm -it -- sh
 ```
 kubectl annotate namespace XPTO scheduler.alpha.kubernetes.io/defaultTolerations='[{"Key": "kubernetes.azure.com/scalesetpriority","Operator":"Equal", "Value":"spot", "Effect": "NoSchedule"}]'
 ```
+
+### Curl - Telnet
+
+Em determinadas situações, será necessário fazer um teste de conexão com um host, ip externo, e não havendo um telnet, pode-se usar um curl
+```
+curl -v telnet://ipOuHostname:Porta --connect-timeout 5
+```
