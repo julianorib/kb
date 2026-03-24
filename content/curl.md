@@ -44,9 +44,10 @@ curl -X DELETE https://api.exemplo.com/usuario/123 -H "Authorization: Bearer TOK
 ``` 
 
 ## Options
-
+```
 -i: mostra os headers da resposta
 -v: modo verboso (mostra tudo que está acontecendo)
 -H: adiciona headers personalizados
 -d: envia dados no corpo da requisição
 -X: força o método HTTP (GET, POST etc)
+```
