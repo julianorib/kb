@@ -92,7 +92,7 @@ az aks delete --name my-cluster --resource-group rg
 
 ### Comportamento:
 
-- Deve Atualizar Cluster e Nodepools separadamente.
+- Pode Atualizar Cluster e Nodepools junto.
 - Nodes system, segue maxSurge.
 - Nodes user, segue maxSurge.
 - Nodes spot, remove tudo de uma vez e cria novamente.
