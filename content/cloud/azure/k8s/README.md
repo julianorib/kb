@@ -87,3 +87,22 @@ az aks delete --name my-cluster --resource-group rg
 - Identity
 - Public IP
 - Load balancer
+
+## Upgrade
+
+### Comportamento:
+
+- Deve Atualizar Cluster e Nodepools separadamente.
+- Nodes system, segue maxSurge.
+- Nodes user, segue maxSurge.
+- Nodes spot, remove tudo de uma vez e cria novamente.
+
+Via CLI, pode-se fazer o update para o Cluster + Nodepools. Será feito uma pergunta se deseja fazer este upgrade.
+```
+az aks upgrade --resource-group <RG> --name <CLUSTER_NAME> --kubernetes-version <VERSAO_DESTINO>
+```
+
+Caso responda Não para a questão anterior, será necessário fazer o Update de cada Nodepool:
+```
+az aks nodepool upgrade --resource-group <RG> --cluster-name <CLUSTER_NAME> --name <NODEPOOL_NAME> --kubernetes-version <VERSAO_DESTINO>
+```
