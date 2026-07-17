@@ -1,6 +1,6 @@
-# Guia Completo de Modelos de IA (2026)
+# Guia Completo de Modelos e Agentes de IA (2026)
 
-> Referência prática para profissionais de TI, SRE, DevOps, Cloud, Desenvolvimento e Automação.
+Referência prática para profissionais de TI, SRE, DevOps, Cloud, Plataforma, Desenvolvimento e Automação.
 
 ---
 
@@ -13,54 +13,64 @@
 5. Anthropic Claude
 6. Google Gemini
 7. Perplexity
-8. Grok
+8. Grok (xAI)
 9. DeepSeek
 10. Llama
 11. Qwen
-12. Ferramentas de Imagem
-13. Ferramentas de Vídeo
-14. Ferramentas de Áudio
-15. Execução Local de Modelos
-16. Comparativo para SRE e DevOps
-17. Ranking por Cenário
-18. Conclusão
+12. Google Antigravity
+13. Frameworks de Agentes
+14. Protocolos e Padrões de Mercado
+15. Ferramentas de Imagem
+16. Ferramentas de Vídeo
+17. Ferramentas de Áudio
+18. Execução Local
+19. Comparativo para SRE e DevOps
+20. Ranking por Cenário
+21. Era dos Agentes
+22. Conclusão
 
 ---
 
 # 1. Visão Geral do Mercado
 
-Atualmente o ecossistema de IA pode ser dividido em seis grandes grupos:
+O mercado de IA deixou de ser apenas uma disputa entre modelos de linguagem.
 
-- Assistentes Generalistas
-- Programação e Automação
-- Pesquisa e Busca
-- Modelos Open Source
-- Geração de Imagens
-- Geração de Vídeos e Áudio
+Em 2026 existe uma nova camada:
 
-Nenhum modelo é o melhor em tudo.
+- Modelos (LLMs)
+- Agentes
+- Ferramentas
+- Frameworks de Orquestração
+- Protocolos de Integração
 
-A escolha correta depende do objetivo.
+A pergunta mais importante não é mais:
+
+> "Qual é o melhor modelo?"
+
+Mas sim:
+
+> "Qual ecossistema resolve melhor meu problema?"
 
 ---
 
 # 2. Comparativo Rápido
 
-| Modelo | Melhor Uso |
-|----------|----------|
+| Plataforma | Melhor Uso |
+|------------|------------|
 | ChatGPT | Uso geral |
 | Copilot | Microsoft 365 |
-| Claude Sonnet | Programação |
-| Gemini Pro | Contexto grande |
+| Claude | Programação |
+| Gemini | Grandes contextos |
 | Perplexity | Pesquisa |
-| Grok | Notícias e tendências |
-| DeepSeek | API barata |
-| Qwen | Local/Open Source |
+| Grok | Notícias |
+| DeepSeek | APIs baratas |
 | Llama | Self-hosted |
+| Qwen | Execução local |
+| Antigravity | Engenharia orientada a agentes |
 
 ---
 
-# 3. OpenAI - GPT / ChatGPT
+# 3. OpenAI (GPT)
 
 ## Fabricante
 
@@ -72,43 +82,53 @@ OpenAI
 - GPT-5 Thinking
 - GPT-5 Mini
 
-## Pontos Fortes
+## Agentes Oficiais
 
-- Melhor equilíbrio geral
-- Escrita avançada
-- Raciocínio
-- Análise de documentos
-- Imagens
-- Voz
+### ChatGPT Agent
 
-## Pontos Fracos
+Agente generalista capaz de executar tarefas utilizando ferramentas, documentos e navegação.
 
-- Pode alucinar
-- Custo elevado para uso massivo
+### Deep Research
 
-## Aplicativos
+Pesquisa autônoma avançada.
 
-- Web
-- Windows
-- MacOS
-- Android
-- iOS
+Ideal para:
 
-## API
+- RCA
+- Estudos
+- Pesquisa técnica
+- Comparativos
 
-Sim
+### Codex
 
-## CLI
+Agente especializado em desenvolvimento.
 
-- Codex CLI
+Capaz de:
+
+- gerar código
+- corrigir bugs
+- criar testes
+- revisar código
+
+### Operator
+
+Agente para navegação e execução de atividades em websites.
+
+## Ecossistema
+
+- GPTs Customizados
+- Actions
+- Responses API
+- Assistants API
+- MCP
 
 ## Melhor para
 
 - Documentação
 - Estudos
-- Produtividade
+- Raciocínio
+- Agentes corporativos
 - Planejamento
-- Resolução de problemas
 
 ---
 
@@ -118,31 +138,51 @@ Sim
 
 Microsoft
 
-## Principais Produtos
+## Produtos
 
 - Copilot Chat
 - Microsoft 365 Copilot
 - GitHub Copilot
 - Copilot Studio
 
-## Pontos Fortes
+## Agentes Oficiais
 
-- Outlook
-- Teams
-- Word
-- Excel
-- PowerPoint
-- SharePoint
+### Microsoft 365 Copilot Agents
+
+Agentes especializados para processos corporativos.
+
+### SharePoint Agents
+
+Agentes treinados em sites e bibliotecas corporativas.
+
+### Copilot Studio Agents
+
+Criação de agentes sem desenvolvimento.
+
+### Autonomous Agents
+
+Fluxos empresariais completos executados automaticamente.
+
+### GitHub Copilot Coding Agent
+
+Agente especializado em desenvolvimento.
+
+## Ecossistema
+
+- Copilot Studio
+- Microsoft Graph
+- Power Platform
+- Fabric
+- Azure AI Foundry
 
 ## Melhor para
 
-- Usuários corporativos
 - Empresas Microsoft
-- Automação de tarefas de escritório
-
-## Limitação
-
-- Menor flexibilidade para uso fora do ecossistema Microsoft
+- Office
+- Help Desk
+- RH
+- Financeiro
+- Operações
 
 ---
 
@@ -152,46 +192,58 @@ Microsoft
 
 Anthropic
 
-## Família Claude
+## Modelos
 
 ### Haiku
 
-Uso:
-
-- Bots
-- APIs
-- Chat rápido
+- velocidade
+- baixo custo
 
 ### Sonnet
 
-Uso:
-
-- Programação
-- Terraform
-- Kubernetes
-- Python
-- DevOps
+- programação
+- kubernetes
+- terraform
+- python
 
 ### Opus
 
-Uso:
+- análises complexas
 
-- Casos complexos
-- Análise profunda
+## Agentes Oficiais
+
+### Claude Code
+
+Principal referência atual para engenharia de software.
+
+### Claude Research
+
+Pesquisa profunda.
+
+### Computer Use
+
+Controle de aplicações gráficas.
+
+## Ecossistema
+
+- MCP
+- Claude API
+- Ferramentas externas
 
 ## Pontos Fortes
 
 - Menos alucinação
-- Excelente geração de código
-- Contexto muito grande
-- Excelente documentação técnica
+- Excelente código
+- Contexto gigante
+- Documentação técnica
 
 ## Melhor para
 
-- DevOps
 - SRE
+- DevOps
 - Infraestrutura
 - Segurança
+- Engenharia de Plataforma
 
 ---
 
@@ -205,37 +257,50 @@ Google
 
 ### Flash
 
-Objetivo:
-
-- Velocidade
-- APIs
+Alta velocidade.
 
 ### Pro
 
-Objetivo:
-
-- Grandes documentos
-- Pesquisa
-- Engenharia
+Equilíbrio geral.
 
 ### Ultra
 
-Objetivo:
+Máxima capacidade.
 
-- Máxima capacidade
+## Agentes Oficiais
 
-## Pontos Fortes
+### Gemini Deep Research
 
-- Integra Google Workspace
-- Excelente para PDFs grandes
-- NotebookLM
-- Deep Research
+Pesquisa autônoma.
+
+### Gemini Live
+
+Interação multimodal em tempo real.
+
+### NotebookLM
+
+Especializado em documentos.
+
+### Jules
+
+Agente para desenvolvimento.
+
+### Project Mariner
+
+Agente experimental para navegação web.
+
+## Ecossistema
+
+- Vertex AI Agent Builder
+- Google AI Studio
+- Workspace Agents
 
 ## Melhor para
 
 - Pesquisa
+- PDFs
+- Bases documentais
 - Aprendizado
-- Grandes bases documentais
 
 ---
 
@@ -245,50 +310,50 @@ Objetivo:
 
 Perplexity AI
 
-## Característica Principal
+## Agentes
 
-Busca orientada por IA.
+### Deep Research
 
-Não compete diretamente com ChatGPT.
+Pesquisa autônoma.
 
-Complementa ChatGPT.
+### Spaces
 
-## Ideal para
+Agentes especializados por assunto.
+
+### Labs
+
+Construção de projetos usando IA.
+
+## Melhor para
 
 - Investigações
-- Estudos
 - Benchmarking
 - Comparativos
-
-## Vantagens
-
-- Fontes
-- Referências
-- Atualizações rápidas
+- Due Diligence
 
 ---
 
-# 8. Grok
+# 8. Grok (xAI)
 
 ## Fabricante
 
 xAI
 
-## Características
+## Agentes
 
-- Integração X
-- Tendências em tempo real
-- Notícias recentes
+### Grok DeepSearch
+
+Pesquisa avançada em tempo real.
+
+### Workspace
+
+Projetos longos.
 
 ## Melhor para
 
-- Mercado financeiro
 - Tendências
-- Eventos atuais
-
-## Limitações
-
-- Menos preciso para engenharia complexa
+- Mercado financeiro
+- Notícias
 
 ---
 
@@ -301,20 +366,23 @@ DeepSeek AI
 ## Pontos Fortes
 
 - Excelente custo-benefício
-- Muito forte em programação
-- Bom raciocínio
+- Forte em programação
+- APIs baratas
+
+## Frameworks normalmente utilizados
+
+- CrewAI
+- AutoGen
+- LangGraph
+- LangChain
+- Dify
+- Flowise
 
 ## Melhor para
 
-- APIs corporativas
-- Agentes
-- Automação
-
-## Cenários
-
-- RAG
 - Chatbots
-- Sistemas internos
+- RAG
+- Agentes empresariais
 
 ---
 
@@ -327,20 +395,27 @@ Meta
 ## Pontos Fortes
 
 - Open Source
-- Execução local
 - Fine Tuning
+- Execução local
 
-## Ferramentas Comuns
+## Ecossistema
 
-- Ollama
-- LM Studio
+### Llama Stack
+
+Plataforma de construção de agentes.
+
+### Integrações
+
+- CrewAI
+- LangGraph
 - Open WebUI
+- AutoGen
 
 ## Melhor para
 
-- Laboratórios
 - Homelab
-- Ambientes privados
+- On-Premises
+- IA privada
 
 ---
 
@@ -350,103 +425,270 @@ Meta
 
 Alibaba
 
-## Características
+## Ecossistema de Agentes
 
-- Excelente desempenho
-- Modelos pequenos e grandes
-- Forte em código
+### Qwen-Agent
+
+Framework oficial.
+
+### Open WebUI
+
+Integração nativa.
+
+### CrewAI
+
+Uso muito comum.
+
+### Agno
+
+Framework moderno para agentes.
 
 ## Melhor para
 
-- Execução local
-- Agentes
-- IA embarcada
-
-## Vantagens
-
-- Ótimo consumo de recursos
+- IA local
+- Homelab
+- Ambientes privados
 
 ---
 
-# 12. Ferramentas de Imagem
+# 12. Google Antigravity
 
-## Midjourney
-
-Melhor para:
-
-- Marketing
-- Design
-- Conceitos visuais
-
-## ChatGPT Images
-
-Melhor para:
-
-- Diagramas
-- Mockups
-- Conteúdo corporativo
-
-## Flux
-
-Melhor para:
-
-- Open Source
-- Execução local
-
-## Ideogram
-
-Melhor para:
-
-- Texto em imagens
-
----
-
-# 13. Ferramentas de Vídeo
-
-## Sora
-
-OpenAI
-
-- Maior qualidade
-- Vídeos complexos
-
-## Kling
-
-- Realismo
-- Personagens humanos
-
-## Luma
-
-- Rapidez
-- Fácil utilização
-
-## Veo
+## Fabricante
 
 Google
 
-- Produção premium
+## Categoria
+
+Plataforma de Desenvolvimento Orientada a Agentes
+
+## O que é
+
+Antigravity é uma plataforma agent-first voltada para engenharia de software, desenvolvimento assistido por IA e automação avançada.
+
+Diferente de um modelo de linguagem tradicional, o Antigravity é um ambiente completo de execução e coordenação de agentes.
+
+## Principais Componentes
+
+### Antigravity IDE
+
+Ambiente de desenvolvimento com agentes nativos.
+
+Recursos:
+
+- geração de código
+- revisão de código
+- planejamento de tarefas
+- execução assistida
+
+### Antigravity CLI
+
+Uso via terminal.
+
+Ideal para:
+
+- DevOps
+- SRE
+- Automação
+- Pipelines CI/CD
+
+### Antigravity SDK
+
+Desenvolvimento de aplicações baseadas em agentes.
+
+### Antigravity Agent
+
+Agente gerenciado para:
+
+- Bash
+- Python
+- Node.js
+- Navegação Web
+- Manipulação de arquivos
+- MCP Servers
+- APIs externas
+
+## Ecossistema
+
+- Gemini
+- Vertex AI
+- Google AI Studio
+- MCP
+- APIs Corporativas
+
+## Pontos Fortes
+
+- Execução real de tarefas
+- Engenharia orientada a agentes
+- Integração com ecossistema Google
+- Forte foco em automação
+
+## Concorrentes Diretos
+
+- Claude Code
+- Codex
+- GitHub Copilot Coding Agent
+- Devin
+- OpenHands
+- Cursor Agent
+- Windsurf
+
+## Melhor para
+
+- Engenharia de Software
+- DevOps
+- SRE
+- Automação
+- Plataformas Internas
 
 ---
 
-# 14. Ferramentas de Áudio
+# 13. Frameworks de Agentes
+
+## CrewAI
+
+Framework multiagentes.
+
+Exemplo:
+
+- Analista
+- Desenvolvedor
+- Revisor
+- Executor
+
+Todos trabalhando em conjunto.
+
+---
+
+## LangGraph
+
+Framework da LangChain voltado para workflows complexos.
+
+---
+
+## AutoGen
+
+Framework criado pela Microsoft.
+
+Especializado em comunicação entre agentes.
+
+---
+
+## Dify
+
+Plataforma low-code para agentes.
+
+---
+
+## Flowise
+
+Construção visual de agentes.
+
+---
+
+## Agno
+
+Framework leve para construção de agentes.
+
+---
+
+## Open WebUI
+
+Execução local com agentes e múltiplos modelos.
+
+---
+
+# 14. Protocolos e Padrões de Mercado
+
+## MCP (Model Context Protocol)
+
+Padrão criado para integração entre modelos e ferramentas.
+
+Exemplos:
+
+- Kubernetes
+- GitHub
+- Jira
+- Confluence
+- Banco de Dados
+
+---
+
+## A2A (Agent-to-Agent)
+
+Comunicação direta entre agentes.
+
+Exemplo:
+
+Agente SRE solicita análise para um Agente DBA.
+
+---
+
+## Function Calling
+
+Permite que modelos utilizem APIs externas.
+
+---
+
+# 15. Ferramentas de Imagem
+
+## Midjourney
+
+Melhor para design e marketing.
+
+## ChatGPT Images
+
+Excelente para documentação e diagramas.
+
+## Flux
+
+Open Source.
+
+## Ideogram
+
+Especialista em texto nas imagens.
+
+---
+
+# 16. Ferramentas de Vídeo
+
+## Sora
+
+OpenAI.
+
+## Kling
+
+Alto realismo.
+
+## Luma
+
+Rapidez de geração.
+
+## Veo
+
+Google.
+
+---
+
+# 17. Ferramentas de Áudio
 
 ## Suno
 
-- Música completa
+Criação musical.
 
 ## Udio
 
-- Produção musical
+Produção musical avançada.
 
 ## ElevenLabs
 
 - Voz sintética
 - Narração
-- Clonagem de voz
+- Dublagem
+- Voice Cloning
 
 ---
 
-# 15. Execução Local
+# 18. Execução Local
 
 ## Ferramentas
 
@@ -456,58 +698,70 @@ Mais popular atualmente.
 
 ### Open WebUI
 
-Interface web.
+Interface Web.
 
 ### LM Studio
 
-Interface desktop.
+Interface Desktop.
+
+### vLLM
+
+Alta performance.
+
+### llama.cpp
+
+Execução eficiente em CPU.
 
 ## Modelos Recomendados
 
-- Llama
 - Qwen
+- Llama
 - DeepSeek
 - Mistral
 - Gemma
 
 ---
 
-# 16. Comparativo para SRE e DevOps
+# 19. Comparativo para SRE e DevOps
 
-| Atividade | Melhor Modelo |
-|------------|---------------|
-| Kubernetes | Claude Sonnet |
-| Terraform | Claude Sonnet |
-| Python | Claude Sonnet |
-| Bash | Claude Sonnet |
+| Atividade | Melhor Solução |
+|------------|------------|
+| Kubernetes | Claude Code |
+| Terraform | Claude Code |
+| Python | Claude Code |
+| Bash | Claude Code |
+| GitHub | Codex |
+| RCA | Deep Research |
 | Observabilidade | ChatGPT |
 | Pesquisa Técnica | Perplexity |
-| Arquitetura Cloud | ChatGPT |
-| RAG e Agentes | DeepSeek |
-| Laboratório Local | Qwen |
+| RAG Corporativo | DeepSeek + CrewAI |
+| Homelab | Qwen + Open WebUI |
+| Automação Complexa | Antigravity |
+| Agentes Corporativos | Copilot Agents |
 
 ---
 
-# 17. Ranking por Cenário
+# 20. Ranking por Cenário
 
 ## Programação
 
-1. Claude Sonnet
-2. ChatGPT
-3. DeepSeek
-4. Gemini
+1. Claude Code
+2. Antigravity
+3. GPT-5 + Codex
+4. Gemini + Jules
+5. DeepSeek
 
 ## Pesquisa
 
 1. Perplexity
-2. Gemini
-3. ChatGPT
+2. Gemini Deep Research
+3. ChatGPT Deep Research
 
 ## Trabalho Corporativo
 
-1. Copilot
-2. ChatGPT
-3. Gemini
+1. Microsoft Copilot
+2. ChatGPT Enterprise
+3. Gemini Workspace
 
 ## Execução Local
 
@@ -523,17 +777,82 @@ Interface desktop.
 
 ---
 
-# 18. Conclusão
+# 21. Era dos Agentes
 
-## Stack Ideal para um Profissional SRE
+O mercado está migrando de:
+
+Modelo → Prompt → Resposta
+
+Para:
+
+Agente → Ferramentas → Memória → Planejamento → Ação
+
+## Agentes de Engenharia Mais Relevantes
+
+### Claude Code
+
+Referência em programação profissional.
+
+### Antigravity
+
+Plataforma agent-first da Google.
+
+### Codex
+
+Agente de engenharia da OpenAI.
+
+### GitHub Copilot Coding Agent
+
+Integração nativa ao GitHub.
+
+### Jules
+
+Agente baseado em Gemini.
+
+### Devin
+
+Engenheiro de software autônomo.
+
+### OpenHands
+
+Alternativa Open Source para desenvolvimento orientado a agentes.
+
+### Cursor Agent
+
+Programação assistida por IA diretamente na IDE.
+
+### Windsurf
+
+Plataforma moderna para desenvolvimento agent-first.
+
+### Roo Code
+
+Extensão avançada para VSCode.
+
+### Cline
+
+Agente open source muito utilizado pela comunidade.
+
+## Tendências
+
+- MCP se tornando padrão de mercado
+- Agentes especializados substituindo automações simples
+- Multiagentes ganhando espaço em ambientes corporativos
+- IA executando tarefas completas e não apenas respondendo perguntas
+
+---
+
+# 22. Conclusão
+
+## Stack Recomendada para SRE / DevOps
 
 ### Copilot
 
 Produtividade corporativa.
 
-### Claude Sonnet
+### Claude Code
 
-Código e automações.
+Código e automação.
 
 ### ChatGPT
 
@@ -541,24 +860,45 @@ Raciocínio geral e documentação.
 
 ### Perplexity
 
-Pesquisas técnicas.
+Pesquisa técnica.
 
-### Qwen via Ollama
+### Qwen + Ollama
 
 Laboratório local.
 
-### DeepSeek API
+### DeepSeek
 
 Automações de baixo custo.
+
+### Antigravity
+
+Fluxos complexos orientados a agentes.
 
 ---
 
 ## Recomendação Final
 
-Se fosse necessário escolher apenas três soluções:
+Se fosse necessário escolher apenas três plataformas:
 
-1. Claude Sonnet
+1. Claude
 2. ChatGPT / Copilot
 3. Perplexity
 
-Essa combinação cobre praticamente 100% das atividades de um profissional DevOps, SRE, Cloud ou Plataforma.
+Se o foco for desenvolvimento orientado a agentes:
+
+1. Claude Code
+2. Antigravity
+3. Codex
+
+Essa combinação cobre praticamente 100% das necessidades de profissionais de:
+
+- SRE
+- DevOps
+- Cloud
+- Plataforma
+- Infraestrutura
+- Observabilidade
+- Automação
+- Engenharia de Software
+
+O principal aprendizado para 2026 é que o diferencial competitivo não está apenas no modelo utilizado, mas na capacidade de construir e operar agentes inteligentes capazes de executar tarefas completas de negócio e engenharia.
