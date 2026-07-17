@@ -47,4 +47,4 @@ netstat -tn 2>/dev/null | grep 443 | awk '{print $5}' | cut -d: -f1 | sort | uni
 
 ## MTR
 
-[Guia](mtr.md)
+[Guia](mtr.md) - "Traceroute com latência e perda de pacotes por hop, em tempo real."
