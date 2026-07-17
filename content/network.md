@@ -47,4 +47,4 @@ netstat -tn 2>/dev/null | grep 443 | awk '{print $5}' | cut -d: -f1 | sort | uni
 
 ## MTR
 
-[Guia](content/mtr.md)
+[Guia](mtr.md)
