@@ -45,3 +45,6 @@ Catalogando a quantidade de conexões estabelecidadas por Porta:
 netstat -tn 2>/dev/null | grep 443 | awk '{print $5}' | cut -d: -f1 | sort | uniq -c
 ```
 
+## MTR
+
+[Guia](content/mtr.md)
