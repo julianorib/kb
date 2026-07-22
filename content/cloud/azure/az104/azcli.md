@@ -31,6 +31,12 @@ az ad sp list --display-name "usuario" -output table
 az ad sp delete -id appId
 ```
 
+## Groups
+```
+az ad group show --group 12345ab67-a1b2-c3d4-e6f7-123abc456def --query displayName -o tsv
+az ad group list --query "[?contains(displayName, 'VV_CLOUD_SQUAD')].[displayName,id]" -o table
+```
+
 ## Terraform with Service Principal
 ```
 provider "azurerm" {
