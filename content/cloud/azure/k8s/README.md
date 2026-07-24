@@ -106,3 +106,8 @@ Caso responda Não para a questão anterior, será necessário fazer o Update de
 ```
 az aks nodepool upgrade --resource-group <RG> --cluster-name <CLUSTER_NAME> --name <NODEPOOL_NAME> --kubernetes-version <VERSAO_DESTINO>
 ```
+#### Update Image Nodepool
+
+```
+az aks nodepool upgrade --resource-group <RG> --cluster-name <CLUSTER_NAME> --name <NODEPOOL_NAME>  --node-image-only
+```
