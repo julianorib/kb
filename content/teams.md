@@ -26,11 +26,16 @@ Remova o Post Card in a chat or channel 1.
 
 Como testar:
 
-Defina o webhook em uma variável, como exemplo:\
+Defina o webhook em uma variável, como exemplo:
+```
 export TEAMS_WORKFLOW_URL=endereco_do_webhook
-
-Defina uma mensagem em uma variável, como exemplo:\
+```
+Defina uma mensagem em uma variável, como exemplo:
+```
 MENSAGEM="Ola a todos!"
+```
 
 Execute um Curl:\
+```
 curl -s -w "%{http_code}" -X POST -H "Content-Type: application/json" -d "{\"text\": \"$MENSAGEM\"}" "$TEAMS_WORKFLOW_URL"
+```
