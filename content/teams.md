@@ -1,6 +1,9 @@
 # Mandar mensagem para o Teams.
 
-Para criar um Webhook de Chat/Canal, clique nos 3[...] do Chat, opção Fluxos de Trabalho, Escolha: Enviar alertas de Webhook para um chat.\
+Para criar um Webhook de Chat/Canal, \
+clique nos 3[...] do Chat, \
+opção Fluxos de Trabalho, \
+Escolha: Enviar alertas de Webhook para um chat.\
 Defina o Chat e Clique em Salvar.
 
 Depois acesse: https://make.powerautomate.com/\
