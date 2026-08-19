@@ -37,7 +37,7 @@ Defina uma mensagem em uma variável, como exemplo:
 MENSAGEM="Ola a todos!"
 ```
 
-Execute um Curl:\
+Execute um Curl:
 ```
 curl -s -w "%{http_code}" -X POST -H "Content-Type: application/json" -d "{\"text\": \"$MENSAGEM\"}" "$TEAMS_WORKFLOW_URL"
 ```
