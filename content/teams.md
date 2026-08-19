@@ -18,7 +18,7 @@ Post in: Chat em Grupo\
 Chat em Grupo: Escolha o Chat\
 Mensagem: \
 Aperte / no campo da mensagem e escolha Insert Expression: \
-Coloque: triggerBody()?['text'] e clique em Add.
+Coloque: `triggerBody()?['text']` e clique em Add.
 
 Remova o Post Card in a chat or channel 1.
 
