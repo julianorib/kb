@@ -1,11 +1,13 @@
 # Mandar mensagem para o Teams.
 
+## Criando um webhook
 Para criar um Webhook de Chat/Canal, \
 clique nos 3[...] do Chat, \
 opção Fluxos de Trabalho, \
 Escolha: Enviar alertas de Webhook para um chat.\
 Defina o Chat e Clique em Salvar.
 
+## Modificando o tipo de ação
 Depois acesse: <https://make.powerautomate.com/>\
 No lado esquerdo, acesse "My Flows ou Fluxos".\
 Clique no Fluxo e edite-o,\
@@ -24,7 +26,7 @@ Remova o Post Card in a chat or channel 1.
 
 
 
-Como testar:
+## Como testar:
 
 Defina o webhook em uma variável, como exemplo:
 ```
