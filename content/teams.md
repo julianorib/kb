@@ -49,7 +49,7 @@ Deve-se editar o Workflow e criar mais ações.
   - Digitar / para criar expressão personalizada: `triggerBody()?['nome_chat']`
 #### Post message in a chat or channel
 - Chat em Grupo:
-  Digitar / para criar expressão personalizada: `first(body('Filter_array'))?['id']`
+  - Digitar / para criar expressão personalizada: `first(body('Filter_array'))?['id']`
     
 ## Como testar:
 
@@ -82,4 +82,16 @@ CHANNEL_ID="19:8728c87..........491b43e1e3f7eab@thread.v2"
 Execute um Curl:
 ```
 curl -s -w "%{http_code}" -X POST -H "Content-Type: application/json" -d "{\"text\": \"$MENSAGEM\", \"channel_id\": \"$CHANNEL_ID\"}" "$TEAMS_WORKFLOW_URL"
+```
+
+### Chat Especificando nome
+
+Crie uma nova variável:
+```
+NOME_CHAT="Chat X"
+```
+
+Execute um Curl:
+```
+curl -s -w "%{http_code}" -X POST -H "Content-Type: application/json" -d "{\"text\": \"$MENSAGEM\", \"nome_chat\": \"$NOME_CHAT\"}" "$TEAMS_WORKFLOW_URL"
 ```
