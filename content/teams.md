@@ -42,6 +42,7 @@ Deve-se editar o Workflow e criar mais ações.
 - Chat Types: Group
 - Topic: All Chats
 #### Filter Array
+![filter_array](workflow-chat-filter-array.png)
 - From: List chats
 - Filter Query:
   - Digitar / para criar expressão personalizada: `item()?['topic']`
