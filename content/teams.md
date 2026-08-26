@@ -29,6 +29,28 @@ Chat em Grupo: Enter custom value\
 Aperte / no campo da mensagem e escolha Insert Expression: \
 Coloque: `triggerBody()?['channel_id']`
 
+### Modificando para qualquer chat especificado por nome
+
+![workflow](workflow-chat-name.png)
+
+Deve-se editar o Workflow e criar mais ações.
+- List Chats
+- Filter Array
+- Post message in a chat or channel
+
+#### List Chats
+- Chat Types: Group
+- Topic: All Chats
+#### Filter Array
+- From: List chats
+- Filter Query:
+  - Digitar / para criar expressão personalizada: `item()?['topic']`
+  - is equal to
+  - Digitar / para criar expressão personalizada: `triggerBody()?['nome_chat']`
+#### Post message in a chat or channel
+- Chat em Grupo:
+  Digitar / para criar expressão personalizada: `first(body('Filter_array'))?['id']`
+    
 ## Como testar:
 
 Defina o webhook em uma variável, como exemplo:
