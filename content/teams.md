@@ -49,7 +49,7 @@ curl -s -w "%{http_code}" -X POST -H "Content-Type: application/json" -d "{\"tex
 
 Vai precisar do ID do Chat. Este pode ser obtido da seguinte forma:\
 Vá no Teams, clique nos três pontos ... ao lado do Canal e escolha Obter link para o canal.\
-O link será algo como: `https://teams.microsoft.com/l/channel/19%3Aabcdefg123456...%40thread.tacv2/Nome...`\
+O link será algo como: `https://teams.microsoft.com/l/channel/19:8728c87..........491b43e1e3f7eab@thread.v2/conversations...`\
 O Chat/Channel ID será: `19:8728c87..........491b43e1e3f7eab@thread.v2`
 
 Crie uma nova variável:
