@@ -24,7 +24,10 @@ Coloque: `triggerBody()?['text']` e clique em Add.
 
 Remova o Post Card in a chat or channel 1.
 
-
+### Modificando para um Chat dinamico.
+Chat em Grupo: Enter custom value\
+Aperte / no campo da mensagem e escolha Insert Expression: \
+Coloque: `triggerBody()?['channel_id']`
 
 ## Como testar:
 
@@ -40,4 +43,21 @@ MENSAGEM="Ola a todos!"
 Execute um Curl:
 ```
 curl -s -w "%{http_code}" -X POST -H "Content-Type: application/json" -d "{\"text\": \"$MENSAGEM\"}" "$TEAMS_WORKFLOW_URL"
+```
+
+### Chat dinamico 
+
+Vai precisar do ID do Chat. Este pode ser obtido da seguinte forma:\
+Vá no Teams, clique nos três pontos ... ao lado do Canal e escolha Obter link para o canal.\
+O link será algo como: `https://teams.microsoft.com/l/channel/19%3Aabcdefg123456...%40thread.tacv2/Nome...`\
+O Chat/Channel ID será: `19:8728c87..........491b43e1e3f7eab@thread.v2`
+
+Crie uma nova variável:
+```
+CHANNEL_ID="19:8728c87..........491b43e1e3f7eab@thread.v2"
+```
+
+Execute um Curl:
+```
+curl -s -w "%{http_code}" -X POST -H "Content-Type: application/json" -d "{\"text\": \"$MENSAGEM\", \"channel_id\": \"$CHANNEL_ID\"}" "$TEAMS_WORKFLOW_URL"
 ```
