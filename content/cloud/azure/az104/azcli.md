@@ -37,6 +37,11 @@ az ad group show --group 12345ab67-a1b2-c3d4-e6f7-123abc456def --query displayNa
 az ad group list --query "[?contains(displayName, 'VV_CLOUD_SQUAD')].[displayName,id]" -o table
 ```
 
+## Membros de um Grupo
+```
+az ad group member list --group 12345ab67-a1b2-c3d4-e6f7-123abc456def --query "[].{Nome:displayName,UPN:userPrincipalName,Id:id}" -o table
+```
+
 ## Terraform with Service Principal
 ```
 provider "azurerm" {
